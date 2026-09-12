@@ -1,0 +1,17 @@
+Column,Recommended Action,Confidence,Source
+Area,binning_equal_freq,0.83,symbolic
+Perimeter,sqrt_transform,0.81,symbolic
+MajorAxisLength,sqrt_transform,0.81,symbolic
+MinorAxisLength,binning_equal_freq,0.83,symbolic
+AspectRation,keep_as_is,0.61,symbolic
+Eccentricity,robust_scale,0.83,symbolic
+ConvexArea,binning_equal_freq,0.83,symbolic
+EquivDiameter,sqrt_transform,0.81,symbolic
+Extent,keep_as_is,0.53,symbolic
+Solidity,drop_column,0.87,symbolic
+roundness,keep_as_is,0.61,symbolic
+Compactness,standard_scale,0.81,symbolic
+ShapeFactor1,keep_as_is,0.64,symbolic
+ShapeFactor2,keep_as_is,0.64,symbolic
+ShapeFactor3,keep_as_is,0.61,symbolic
+ShapeFactor4,keep_as_is,0.64,symbolic
