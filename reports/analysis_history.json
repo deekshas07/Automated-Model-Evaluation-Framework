@@ -1,0 +1,2919 @@
+[
+  {
+    "analysis_id": "a471ddbb-a",
+    "completed_at": "2026-11-11T14:33:19.278733",
+    "dataset_name": "dry_bean.csv",
+    "rows": 13611,
+    "columns": 17,
+    "feature_count": 16,
+    "target_column": "Class",
+    "task_type": "classification",
+    "mode": "both",
+    "selection_metric": "Accuracy",
+    "approach_1": {
+      "selected_model_a": {
+        "Model": "XGBoost",
+        "Accuracy": 0.9258171134777818,
+        "Precision": 0.925957678123246,
+        "Recall": 0.9258171134777818,
+        "F1 Score": 0.9257735500390681,
+        "Model Path": "models\\xgboost.pkl",
+        "training_time_sec": 3.69,
+        "status": "success"
+      },
+      "selection_metric": "Accuracy",
+      "candidate_count": 15,
+      "candidate_models": [
+        {
+          "Model": "XGBoost",
+          "Accuracy": 0.9258171134777818,
+          "Precision": 0.925957678123246,
+          "Recall": 0.9258171134777818,
+          "F1 Score": 0.9257735500390681,
+          "Model Path": "models\\xgboost.pkl",
+          "training_time_sec": 3.69,
+          "status": "success"
+        },
+        {
+          "Model": "CatBoost",
+          "Accuracy": 0.9243481454278369,
+          "Precision": 0.9244548684078585,
+          "Recall": 0.9243481454278369,
+          "F1 Score": 0.9242312351880839,
+          "Model Path": "models\\catboost.pkl",
+          "training_time_sec": 6.864,
+          "status": "success"
+        },
+        {
+          "Model": "HistGradientBoosting",
+          "Accuracy": 0.9239809034153507,
+          "Precision": 0.9242863363301562,
+          "Recall": 0.9239809034153507,
+          "F1 Score": 0.9239872852987805,
+          "Model Path": "models\\hist_gradient_boosting.pkl",
+          "training_time_sec": 5.454,
+          "status": "success"
+        },
+        {
+          "Model": "LightGBM",
+          "Accuracy": 0.9239809034153507,
+          "Precision": 0.924157581887744,
+          "Recall": 0.9239809034153507,
+          "F1 Score": 0.9240139031618331,
+          "Model Path": "models\\lightgbm.pkl",
+          "training_time_sec": 3.1,
+          "status": "success"
+        },
+        {
+          "Model": "Gradient Boosting",
+          "Accuracy": 0.922879177377892,
+          "Precision": 0.9229140327257976,
+          "Recall": 0.922879177377892,
+          "F1 Score": 0.9226711357351975,
+          "Model Path": "models\\gradient_boosting.pkl",
+          "training_time_sec": 149.334,
+          "status": "success"
+        },
+        {
+          "Model": "Random Forest",
+          "Accuracy": 0.9221446933529196,
+          "Precision": 0.922157115650718,
+          "Recall": 0.9221446933529196,
+          "F1 Score": 0.922070695065038,
+          "Model Path": "models\\random_forest.pkl",
+          "training_time_sec": 3.129,
+          "status": "success"
+        },
+        {
+          "Model": "Linear Discriminant Analysis",
+          "Accuracy": 0.9045170767535806,
+          "Precision": 0.9144848887499271,
+          "Recall": 0.9045170767535806,
+          "F1 Score": 0.9059321933003601,
+          "Model Path": "models\\linear_discriminant_analysis.pkl",
+          "training_time_sec": 0.195,
+          "status": "success"
+        },
+        {
+          "Model": "Quadratic Discriminant Analysis",
+          "Accuracy": 0.89386705839148,
+          "Precision": 0.8952582434760223,
+          "Recall": 0.89386705839148,
+          "F1 Score": 0.8938745748685908,
+          "Model Path": "models\\quadratic_discriminant_analysis.pkl",
+          "training_time_sec": 0.183,
+          "status": "success"
+        },
+        {
+          "Model": "Decision Tree",
+          "Accuracy": 0.8916636063165626,
+          "Precision": 0.8912470304116911,
+          "Recall": 0.8916636063165626,
+          "F1 Score": 0.8913219229524194,
+          "Model Path": "models\\decision_tree.pkl",
+          "training_time_sec": 0.99,
+          "status": "success"
+        },
+        {
+          "Model": "Logistic Regression",
+          "Accuracy": 0.8868894601542416,
+          "Precision": 0.8876927719728981,
+          "Recall": 0.8868894601542416,
+          "F1 Score": 0.8869092534349533,
+          "Model Path": "models\\logistic_regression.pkl",
+          "training_time_sec": 5.499,
+          "status": "success"
+        },
+        {
+          "Model": "Naive Bayes",
+          "Accuracy": 0.7638633859713552,
+          "Precision": 0.7653708847319572,
+          "Recall": 0.7638633859713552,
+          "F1 Score": 0.7614742997970327,
+          "Model Path": "models\\naive_bayes.pkl",
+          "training_time_sec": 0.223,
+          "status": "success"
+        },
+        {
+          "Model": "KNN",
+          "Accuracy": 0.7242012486228424,
+          "Precision": 0.7239981327159262,
+          "Recall": 0.7242012486228424,
+          "F1 Score": 0.7216816149618873,
+          "Model Path": "models\\knn.pkl",
+          "training_time_sec": 0.581,
+          "status": "success"
+        },
+        {
+          "Model": "AdaBoost",
+          "Accuracy": 0.6507528461255968,
+          "Precision": 0.6905058965775338,
+          "Recall": 0.6507528461255968,
+          "F1 Score": 0.5793050238060073,
+          "Model Path": "models\\adaboost.pkl",
+          "training_time_sec": 10.908,
+          "status": "success"
+        },
+        {
+          "Model": "SVM",
+          "Accuracy": 0.6371648916636063,
+          "Precision": 0.6231663817655847,
+          "Recall": 0.6371648916636063,
+          "F1 Score": 0.6014133504868324,
+          "Model Path": "models\\svm.pkl",
+          "training_time_sec": 34.995,
+          "status": "success"
+        },
+        {
+          "Model": "Multi Layer Perceptron",
+          "Accuracy": 0.5629820051413882,
+          "Precision": 0.5369152339378203,
+          "Recall": 0.5629820051413882,
+          "F1 Score": 0.4782893693634529,
+          "Model Path": "models\\mlp_classifier.pkl",
+          "training_time_sec": 13.104,
+          "status": "success"
+        }
+      ],
+      "all_results": [
+        {
+          "Model": "Decision Tree",
+          "Accuracy": 0.8916636063165626,
+          "Precision": 0.8912470304116911,
+          "Recall": 0.8916636063165626,
+          "F1 Score": 0.8913219229524194,
+          "Model Path": "models\\decision_tree.pkl",
+          "training_time_sec": 0.99,
+          "status": "success"
+        },
+        {
+          "Model": "Naive Bayes",
+          "Accuracy": 0.7638633859713552,
+          "Precision": 0.7653708847319572,
+          "Recall": 0.7638633859713552,
+          "F1 Score": 0.7614742997970327,
+          "Model Path": "models\\naive_bayes.pkl",
+          "training_time_sec": 0.223,
+          "status": "success"
+        },
+        {
+          "Model": "Random Forest",
+          "Accuracy": 0.9221446933529196,
+          "Precision": 0.922157115650718,
+          "Recall": 0.9221446933529196,
+          "F1 Score": 0.922070695065038,
+          "Model Path": "models\\random_forest.pkl",
+          "training_time_sec": 3.129,
+          "status": "success"
+        },
+        {
+          "Model": "XGBoost",
+          "Accuracy": 0.9258171134777818,
+          "Precision": 0.925957678123246,
+          "Recall": 0.9258171134777818,
+          "F1 Score": 0.9257735500390681,
+          "Model Path": "models\\xgboost.pkl",
+          "training_time_sec": 3.69,
+          "status": "success"
+        },
+        {
+          "Model": "CatBoost",
+          "Accuracy": 0.9243481454278369,
+          "Precision": 0.9244548684078585,
+          "Recall": 0.9243481454278369,
+          "F1 Score": 0.9242312351880839,
+          "Model Path": "models\\catboost.pkl",
+          "training_time_sec": 6.864,
+          "status": "success"
+        },
+        {
+          "Model": "AdaBoost",
+          "Accuracy": 0.6507528461255968,
+          "Precision": 0.6905058965775338,
+          "Recall": 0.6507528461255968,
+          "F1 Score": 0.5793050238060073,
+          "Model Path": "models\\adaboost.pkl",
+          "training_time_sec": 10.908,
+          "status": "success"
+        },
+        {
+          "Model": "Gradient Boosting",
+          "Accuracy": 0.922879177377892,
+          "Precision": 0.9229140327257976,
+          "Recall": 0.922879177377892,
+          "F1 Score": 0.9226711357351975,
+          "Model Path": "models\\gradient_boosting.pkl",
+          "training_time_sec": 149.334,
+          "status": "success"
+        },
+        {
+          "Model": "HistGradientBoosting",
+          "Accuracy": 0.9239809034153507,
+          "Precision": 0.9242863363301562,
+          "Recall": 0.9239809034153507,
+          "F1 Score": 0.9239872852987805,
+          "Model Path": "models\\hist_gradient_boosting.pkl",
+          "training_time_sec": 5.454,
+          "status": "success"
+        },
+        {
+          "Model": "LightGBM",
+          "Accuracy": 0.9239809034153507,
+          "Precision": 0.924157581887744,
+          "Recall": 0.9239809034153507,
+          "F1 Score": 0.9240139031618331,
+          "Model Path": "models\\lightgbm.pkl",
+          "training_time_sec": 3.1,
+          "status": "success"
+        },
+        {
+          "Model": "Logistic Regression",
+          "Accuracy": 0.8868894601542416,
+          "Precision": 0.8876927719728981,
+          "Recall": 0.8868894601542416,
+          "F1 Score": 0.8869092534349533,
+          "Model Path": "models\\logistic_regression.pkl",
+          "training_time_sec": 5.499,
+          "status": "success"
+        },
+        {
+          "Model": "KNN",
+          "Accuracy": 0.7242012486228424,
+          "Precision": 0.7239981327159262,
+          "Recall": 0.7242012486228424,
+          "F1 Score": 0.7216816149618873,
+          "Model Path": "models\\knn.pkl",
+          "training_time_sec": 0.581,
+          "status": "success"
+        },
+        {
+          "Model": "SVM",
+          "Accuracy": 0.6371648916636063,
+          "Precision": 0.6231663817655847,
+          "Recall": 0.6371648916636063,
+          "F1 Score": 0.6014133504868324,
+          "Model Path": "models\\svm.pkl",
+          "training_time_sec": 34.995,
+          "status": "success"
+        },
+        {
+          "Model": "Linear Discriminant Analysis",
+          "Accuracy": 0.9045170767535806,
+          "Precision": 0.9144848887499271,
+          "Recall": 0.9045170767535806,
+          "F1 Score": 0.9059321933003601,
+          "Model Path": "models\\linear_discriminant_analysis.pkl",
+          "training_time_sec": 0.195,
+          "status": "success"
+        },
+        {
+          "Model": "Quadratic Discriminant Analysis",
+          "Accuracy": 0.89386705839148,
+          "Precision": 0.8952582434760223,
+          "Recall": 0.89386705839148,
+          "F1 Score": 0.8938745748685908,
+          "Model Path": "models\\quadratic_discriminant_analysis.pkl",
+          "training_time_sec": 0.183,
+          "status": "success"
+        },
+        {
+          "Model": "Multi Layer Perceptron",
+          "Accuracy": 0.5629820051413882,
+          "Precision": 0.5369152339378203,
+          "Recall": 0.5629820051413882,
+          "F1 Score": 0.4782893693634529,
+          "Model Path": "models\\mlp_classifier.pkl",
+          "training_time_sec": 13.104,
+          "status": "success"
+        }
+      ]
+    },
+    "approach_2": {
+      "selected_model_b": "Random Forest",
+      "recommendation_score": 18.0,
+      "reasons": [
+        "Dataset has sufficient observations relative to feature count for ensemble evaluation",
+        "Moderate feature count and sufficient observations make Random Forest a candidate",
+        "Dataset size and feature count support evaluating tree ensembles",
+        "No missing values simplify preprocessing for Random Forest",
+        "Random Forest supports multiclass classification",
+        "Multiple classes with sufficient samples per class suit tree-ensemble evaluation",
+        "Tree ensembles are worth evaluating when minority-class examples are available",
+        "Multiple features and sufficient observations make Random Forest worth evaluating",
+        "Random Forest is a general-purpose candidate for classification",
+        "At least half of numeric features are strongly skewed; compare a tree ensemble",
+        "Class imbalance is substantial; compare balanced sampling or class-weighted tree ensembles"
+      ],
+      "rules_triggered_count": 11,
+      "message": "Rule-based model recommendation completed.",
+      "trainer_available": true,
+      "is_trained": false,
+      "trained_metrics": null,
+      "rule_engine_type": "160 Classification Evaluation Heuristics (Rules 1\u2013160)"
+    },
+    "tuning_results": {
+      "XGBoost": {
+        "Model": "XGBoost",
+        "Best Parameters": {
+          "subsample": 0.8,
+          "n_estimators": 100,
+          "max_depth": 8,
+          "learning_rate": 0.2,
+          "colsample_bytree": 1.0
+        },
+        "CV Score": 0.9313,
+        "Accuracy": 0.9251,
+        "Precision": 0.9253,
+        "Recall": 0.9251,
+        "F1 Score": 0.9251,
+        "Model Path": "models\\tuned_approach_1_xgboost.pkl",
+        "tuning_time_sec": 136.181,
+        "stage": "approach_1",
+        "search_method": "RandomizedSearchCV (n_iter=20, scoring='f1_weighted')",
+        "baseline_metrics": {
+          "Accuracy": 0.9258,
+          "Precision": 0.926,
+          "Recall": 0.9258,
+          "F1 Score": 0.9258
+        }
+      }
+    },
+    "cross_validation": {
+      "model_path": "models\\xgboost.pkl",
+      "model_name": "XGBoost",
+      "fold_scores": [
+        0.9218,
+        0.9313,
+        0.9247,
+        0.9335,
+        0.928
+      ],
+      "mean_accuracy": 0.9279,
+      "std_accuracy": 0.0043,
+      "n_splits": 5
+    },
+    "shap_available": true
+  },
+  {
+    "analysis_id": "bd624fba-8",
+    "completed_at": "2026-11-04T21:20:48.446253",
+    "dataset_name": "Automobile_data .csv",
+    "rows": 201,
+    "columns": 26,
+    "feature_count": 25,
+    "target_column": "price",
+    "task_type": "regression",
+    "mode": "both",
+    "selection_metric": "R2 Score",
+    "approach_1": {
+      "selected_model_a": {
+        "Model": "Linear Regression",
+        "MAE": 1974.7320835971886,
+        "MSE": 10597713.639643248,
+        "RMSE": 3255.4129752833583,
+        "R2 Score": 0.9133797044857022,
+        "Model Path": "models\\linear_regression.pkl",
+        "training_time_sec": 0.119,
+        "status": "success"
+      },
+      "selection_metric": "R2 Score",
+      "candidate_count": 1,
+      "candidate_models": [
+        {
+          "Model": "Linear Regression",
+          "MAE": 1974.7320835971886,
+          "MSE": 10597713.639643248,
+          "RMSE": 3255.4129752833583,
+          "R2 Score": 0.9133797044857022,
+          "Model Path": "models\\linear_regression.pkl",
+          "training_time_sec": 0.119,
+          "status": "success"
+        }
+      ],
+      "all_results": [
+        {
+          "Model": "Linear Regression",
+          "MAE": 1974.7320835971886,
+          "MSE": 10597713.639643248,
+          "RMSE": 3255.4129752833583,
+          "R2 Score": 0.9133797044857022,
+          "Model Path": "models\\linear_regression.pkl",
+          "training_time_sec": 0.119,
+          "status": "success"
+        }
+      ]
+    },
+    "approach_2": {
+      "selected_model_b": "CatBoost Regressor",
+      "recommendation_score": 7.0,
+      "reasons": [
+        "Categorical features are present; use a compatible categorical-handling pipeline",
+        "Mixed numeric and categorical features warrant categorical-aware boosting",
+        "Several categorical columns make CatBoost worth benchmarking",
+        "Categorical features make CatBoost regression worth evaluating with proper input handling"
+      ],
+      "rules_triggered_count": 4,
+      "message": "Rule-based model recommendation completed.",
+      "trainer_available": false,
+      "is_trained": false,
+      "trained_metrics": null,
+      "rule_engine_type": "85 Regression Evaluation Heuristics (Rules R1\u2013R85)"
+    },
+    "tuning_results": {},
+    "cross_validation": null,
+    "shap_available": false
+  },
+  {
+    "analysis_id": "064b4e9b-2",
+    "completed_at": "2026-11-04T21:18:31.534765",
+    "dataset_name": "iris.csv",
+    "rows": 150,
+    "columns": 5,
+    "feature_count": 4,
+    "target_column": "variety",
+    "task_type": "classification",
+    "mode": "both",
+    "selection_metric": "Accuracy",
+    "approach_1": {
+      "selected_model_a": {
+        "Model": "KNN",
+        "Accuracy": 1.0,
+        "Precision": 1.0,
+        "Recall": 1.0,
+        "F1 Score": 1.0,
+        "Model Path": "models\\knn.pkl",
+        "training_time_sec": 0.044,
+        "status": "success"
+      },
+      "selection_metric": "Accuracy",
+      "candidate_count": 15,
+      "candidate_models": [
+        {
+          "Model": "KNN",
+          "Accuracy": 1.0,
+          "Precision": 1.0,
+          "Recall": 1.0,
+          "F1 Score": 1.0,
+          "Model Path": "models\\knn.pkl",
+          "training_time_sec": 0.044,
+          "status": "success"
+        },
+        {
+          "Model": "Linear Discriminant Analysis",
+          "Accuracy": 1.0,
+          "Precision": 1.0,
+          "Recall": 1.0,
+          "F1 Score": 1.0,
+          "Model Path": "models\\linear_discriminant_analysis.pkl",
+          "training_time_sec": 0.031,
+          "status": "success"
+        },
+        {
+          "Model": "Multi Layer Perceptron",
+          "Accuracy": 1.0,
+          "Precision": 1.0,
+          "Recall": 1.0,
+          "F1 Score": 1.0,
+          "Model Path": "models\\mlp_classifier.pkl",
+          "training_time_sec": 0.802,
+          "status": "success"
+        },
+        {
+          "Model": "Naive Bayes",
+          "Accuracy": 0.9666666666666667,
+          "Precision": 0.9696969696969696,
+          "Recall": 0.9666666666666667,
+          "F1 Score": 0.9665831244778613,
+          "Model Path": "models\\naive_bayes.pkl",
+          "training_time_sec": 0.061,
+          "status": "success"
+        },
+        {
+          "Model": "Gradient Boosting",
+          "Accuracy": 0.9666666666666667,
+          "Precision": 0.9696969696969696,
+          "Recall": 0.9666666666666667,
+          "F1 Score": 0.9665831244778613,
+          "Model Path": "models\\gradient_boosting.pkl",
+          "training_time_sec": 1.025,
+          "status": "success"
+        },
+        {
+          "Model": "Logistic Regression",
+          "Accuracy": 0.9666666666666667,
+          "Precision": 0.9696969696969696,
+          "Recall": 0.9666666666666667,
+          "F1 Score": 0.9665831244778613,
+          "Model Path": "models\\logistic_regression.pkl",
+          "training_time_sec": 0.094,
+          "status": "success"
+        },
+        {
+          "Model": "SVM",
+          "Accuracy": 0.9666666666666667,
+          "Precision": 0.9696969696969696,
+          "Recall": 0.9666666666666667,
+          "F1 Score": 0.9665831244778613,
+          "Model Path": "models\\svm.pkl",
+          "training_time_sec": 0.035,
+          "status": "success"
+        },
+        {
+          "Model": "Decision Tree",
+          "Accuracy": 0.9333333333333333,
+          "Precision": 0.9333333333333333,
+          "Recall": 0.9333333333333333,
+          "F1 Score": 0.9333333333333333,
+          "Model Path": "models\\decision_tree.pkl",
+          "training_time_sec": 0.087,
+          "status": "success"
+        },
+        {
+          "Model": "XGBoost",
+          "Accuracy": 0.9333333333333333,
+          "Precision": 0.9333333333333333,
+          "Recall": 0.9333333333333333,
+          "F1 Score": 0.9333333333333333,
+          "Model Path": "models\\xgboost.pkl",
+          "training_time_sec": 0.2,
+          "status": "success"
+        },
+        {
+          "Model": "CatBoost",
+          "Accuracy": 0.9333333333333333,
+          "Precision": 0.9333333333333333,
+          "Recall": 0.9333333333333333,
+          "F1 Score": 0.9333333333333333,
+          "Model Path": "models\\catboost.pkl",
+          "training_time_sec": 0.302,
+          "status": "success"
+        },
+        {
+          "Model": "AdaBoost",
+          "Accuracy": 0.9333333333333333,
+          "Precision": 0.9333333333333333,
+          "Recall": 0.9333333333333333,
+          "F1 Score": 0.9333333333333333,
+          "Model Path": "models\\adaboost.pkl",
+          "training_time_sec": 0.923,
+          "status": "success"
+        },
+        {
+          "Model": "Random Forest",
+          "Accuracy": 0.9,
+          "Precision": 0.9023569023569024,
+          "Recall": 0.9,
+          "F1 Score": 0.8997493734335839,
+          "Model Path": "models\\random_forest.pkl",
+          "training_time_sec": 0.908,
+          "status": "success"
+        },
+        {
+          "Model": "HistGradientBoosting",
+          "Accuracy": 0.9,
+          "Precision": 0.9023569023569024,
+          "Recall": 0.9,
+          "F1 Score": 0.8997493734335839,
+          "Model Path": "models\\hist_gradient_boosting.pkl",
+          "training_time_sec": 0.644,
+          "status": "success"
+        },
+        {
+          "Model": "LightGBM",
+          "Accuracy": 0.9,
+          "Precision": 0.9023569023569024,
+          "Recall": 0.9,
+          "F1 Score": 0.8997493734335839,
+          "Model Path": "models\\lightgbm.pkl",
+          "training_time_sec": 0.13,
+          "status": "success"
+        },
+        {
+          "Model": "Quadratic Discriminant Analysis",
+          "Accuracy": 0.9,
+          "Precision": 0.9023569023569024,
+          "Recall": 0.9,
+          "F1 Score": 0.8997493734335839,
+          "Model Path": "models\\quadratic_discriminant_analysis.pkl",
+          "training_time_sec": 0.038,
+          "status": "success"
+        }
+      ],
+      "all_results": [
+        {
+          "Model": "Decision Tree",
+          "Accuracy": 0.9333333333333333,
+          "Precision": 0.9333333333333333,
+          "Recall": 0.9333333333333333,
+          "F1 Score": 0.9333333333333333,
+          "Model Path": "models\\decision_tree.pkl",
+          "training_time_sec": 0.087,
+          "status": "success"
+        },
+        {
+          "Model": "Naive Bayes",
+          "Accuracy": 0.9666666666666667,
+          "Precision": 0.9696969696969696,
+          "Recall": 0.9666666666666667,
+          "F1 Score": 0.9665831244778613,
+          "Model Path": "models\\naive_bayes.pkl",
+          "training_time_sec": 0.061,
+          "status": "success"
+        },
+        {
+          "Model": "Random Forest",
+          "Accuracy": 0.9,
+          "Precision": 0.9023569023569024,
+          "Recall": 0.9,
+          "F1 Score": 0.8997493734335839,
+          "Model Path": "models\\random_forest.pkl",
+          "training_time_sec": 0.908,
+          "status": "success"
+        },
+        {
+          "Model": "XGBoost",
+          "Accuracy": 0.9333333333333333,
+          "Precision": 0.9333333333333333,
+          "Recall": 0.9333333333333333,
+          "F1 Score": 0.9333333333333333,
+          "Model Path": "models\\xgboost.pkl",
+          "training_time_sec": 0.2,
+          "status": "success"
+        },
+        {
+          "Model": "CatBoost",
+          "Accuracy": 0.9333333333333333,
+          "Precision": 0.9333333333333333,
+          "Recall": 0.9333333333333333,
+          "F1 Score": 0.9333333333333333,
+          "Model Path": "models\\catboost.pkl",
+          "training_time_sec": 0.302,
+          "status": "success"
+        },
+        {
+          "Model": "AdaBoost",
+          "Accuracy": 0.9333333333333333,
+          "Precision": 0.9333333333333333,
+          "Recall": 0.9333333333333333,
+          "F1 Score": 0.9333333333333333,
+          "Model Path": "models\\adaboost.pkl",
+          "training_time_sec": 0.923,
+          "status": "success"
+        },
+        {
+          "Model": "Gradient Boosting",
+          "Accuracy": 0.9666666666666667,
+          "Precision": 0.9696969696969696,
+          "Recall": 0.9666666666666667,
+          "F1 Score": 0.9665831244778613,
+          "Model Path": "models\\gradient_boosting.pkl",
+          "training_time_sec": 1.025,
+          "status": "success"
+        },
+        {
+          "Model": "HistGradientBoosting",
+          "Accuracy": 0.9,
+          "Precision": 0.9023569023569024,
+          "Recall": 0.9,
+          "F1 Score": 0.8997493734335839,
+          "Model Path": "models\\hist_gradient_boosting.pkl",
+          "training_time_sec": 0.644,
+          "status": "success"
+        },
+        {
+          "Model": "LightGBM",
+          "Accuracy": 0.9,
+          "Precision": 0.9023569023569024,
+          "Recall": 0.9,
+          "F1 Score": 0.8997493734335839,
+          "Model Path": "models\\lightgbm.pkl",
+          "training_time_sec": 0.13,
+          "status": "success"
+        },
+        {
+          "Model": "Logistic Regression",
+          "Accuracy": 0.9666666666666667,
+          "Precision": 0.9696969696969696,
+          "Recall": 0.9666666666666667,
+          "F1 Score": 0.9665831244778613,
+          "Model Path": "models\\logistic_regression.pkl",
+          "training_time_sec": 0.094,
+          "status": "success"
+        },
+        {
+          "Model": "KNN",
+          "Accuracy": 1.0,
+          "Precision": 1.0,
+          "Recall": 1.0,
+          "F1 Score": 1.0,
+          "Model Path": "models\\knn.pkl",
+          "training_time_sec": 0.044,
+          "status": "success"
+        },
+        {
+          "Model": "SVM",
+          "Accuracy": 0.9666666666666667,
+          "Precision": 0.9696969696969696,
+          "Recall": 0.9666666666666667,
+          "F1 Score": 0.9665831244778613,
+          "Model Path": "models\\svm.pkl",
+          "training_time_sec": 0.035,
+          "status": "success"
+        },
+        {
+          "Model": "Linear Discriminant Analysis",
+          "Accuracy": 1.0,
+          "Precision": 1.0,
+          "Recall": 1.0,
+          "F1 Score": 1.0,
+          "Model Path": "models\\linear_discriminant_analysis.pkl",
+          "training_time_sec": 0.031,
+          "status": "success"
+        },
+        {
+          "Model": "Quadratic Discriminant Analysis",
+          "Accuracy": 0.9,
+          "Precision": 0.9023569023569024,
+          "Recall": 0.9,
+          "F1 Score": 0.8997493734335839,
+          "Model Path": "models\\quadratic_discriminant_analysis.pkl",
+          "training_time_sec": 0.038,
+          "status": "success"
+        },
+        {
+          "Model": "Multi Layer Perceptron",
+          "Accuracy": 1.0,
+          "Precision": 1.0,
+          "Recall": 1.0,
+          "F1 Score": 1.0,
+          "Model Path": "models\\mlp_classifier.pkl",
+          "training_time_sec": 0.802,
+          "status": "success"
+        }
+      ]
+    },
+    "approach_2": {
+      "selected_model_b": "KNN",
+      "recommendation_score": 9.0,
+      "reasons": [
+        "Low-dimensional dataset makes distance-based classification worth evaluating",
+        "Low-dimensional data with sufficient samples makes KNN worth evaluating",
+        "Low-dimensional data with sufficient observations makes distance-based learning worth evaluating",
+        "Low-dimensional data with sufficient observations makes KNN a candidate",
+        "Each class has at least 30 rows and feature count is modest; compare KNN after scaling"
+      ],
+      "rules_triggered_count": 5,
+      "message": "Rule-based model recommendation completed.",
+      "trainer_available": true,
+      "is_trained": false,
+      "trained_metrics": null,
+      "rule_engine_type": "160 Classification Evaluation Heuristics (Rules 1\u2013160)"
+    },
+    "tuning_results": {
+      "KNN": {
+        "Model": "KNN",
+        "Best Parameters": {
+          "weights": "distance",
+          "p": 1,
+          "n_neighbors": 5,
+          "metric": "euclidean"
+        },
+        "CV Score": 0.9749,
+        "Accuracy": 1.0,
+        "Precision": 1.0,
+        "Recall": 1.0,
+        "F1 Score": 1.0,
+        "Model Path": "models\\tuned_approach_1_knn.pkl",
+        "tuning_time_sec": 1.379,
+        "stage": "approach_1",
+        "search_method": "RandomizedSearchCV (n_iter=20, scoring='f1_weighted')",
+        "baseline_metrics": {
+          "Accuracy": 1.0,
+          "Precision": 1.0,
+          "Recall": 1.0,
+          "F1 Score": 1.0
+        }
+      }
+    },
+    "cross_validation": {
+      "model_path": "models\\knn.pkl",
+      "model_name": "KNN",
+      "fold_scores": [
+        1.0,
+        0.9667,
+        0.9333,
+        1.0,
+        0.9333
+      ],
+      "mean_accuracy": 0.9667,
+      "std_accuracy": 0.0298,
+      "n_splits": 5
+    },
+    "shap_available": true
+  },
+  {
+    "analysis_id": "baf5d7f2-5",
+    "completed_at": "2026-11-04T21:14:41.613300",
+    "dataset_name": "breast-cancer.csv",
+    "rows": 272,
+    "columns": 10,
+    "feature_count": 9,
+    "target_column": "class",
+    "task_type": "classification",
+    "mode": "both",
+    "selection_metric": "Accuracy",
+    "approach_1": {
+      "selected_model_a": {
+        "Model": "AdaBoost",
+        "Accuracy": 0.7454545454545455,
+        "Precision": 0.7293753865182435,
+        "Recall": 0.7454545454545455,
+        "F1 Score": 0.7020661157024793,
+        "Model Path": "models\\adaboost.pkl",
+        "training_time_sec": 1.075,
+        "status": "success"
+      },
+      "selection_metric": "Accuracy",
+      "candidate_count": 15,
+      "candidate_models": [
+        {
+          "Model": "AdaBoost",
+          "Accuracy": 0.7454545454545455,
+          "Precision": 0.7293753865182435,
+          "Recall": 0.7454545454545455,
+          "F1 Score": 0.7020661157024793,
+          "Model Path": "models\\adaboost.pkl",
+          "training_time_sec": 1.075,
+          "status": "success"
+        },
+        {
+          "Model": "SVM",
+          "Accuracy": 0.7454545454545455,
+          "Precision": 0.7249516441005803,
+          "Recall": 0.7454545454545455,
+          "F1 Score": 0.7148696264975335,
+          "Model Path": "models\\svm.pkl",
+          "training_time_sec": 0.117,
+          "status": "success"
+        },
+        {
+          "Model": "Quadratic Discriminant Analysis",
+          "Accuracy": 0.7454545454545455,
+          "Precision": 0.746524064171123,
+          "Recall": 0.7454545454545455,
+          "F1 Score": 0.6860606060606059,
+          "Model Path": "models\\quadratic_discriminant_analysis.pkl",
+          "training_time_sec": 0.091,
+          "status": "success"
+        },
+        {
+          "Model": "Multi Layer Perceptron",
+          "Accuracy": 0.7454545454545455,
+          "Precision": 0.7454545454545455,
+          "Recall": 0.7454545454545455,
+          "F1 Score": 0.7454545454545455,
+          "Model Path": "models\\mlp_classifier.pkl",
+          "training_time_sec": 1.35,
+          "status": "success"
+        },
+        {
+          "Model": "HistGradientBoosting",
+          "Accuracy": 0.7272727272727273,
+          "Precision": 0.7137862137862138,
+          "Recall": 0.7272727272727273,
+          "F1 Score": 0.7182166492511319,
+          "Model Path": "models\\hist_gradient_boosting.pkl",
+          "training_time_sec": 4.177,
+          "status": "success"
+        },
+        {
+          "Model": "Random Forest",
+          "Accuracy": 0.7090909090909091,
+          "Precision": 0.6988913525498891,
+          "Recall": 0.7090909090909091,
+          "F1 Score": 0.7030303030303031,
+          "Model Path": "models\\random_forest.pkl",
+          "training_time_sec": 1.224,
+          "status": "success"
+        },
+        {
+          "Model": "Logistic Regression",
+          "Accuracy": 0.7090909090909091,
+          "Precision": 0.6896405919661734,
+          "Recall": 0.7090909090909091,
+          "F1 Score": 0.6954070319923978,
+          "Model Path": "models\\logistic_regression.pkl",
+          "training_time_sec": 0.12,
+          "status": "success"
+        },
+        {
+          "Model": "KNN",
+          "Accuracy": 0.7090909090909091,
+          "Precision": 0.6735009671179883,
+          "Recall": 0.7090909090909091,
+          "F1 Score": 0.6741367159971812,
+          "Model Path": "models\\knn.pkl",
+          "training_time_sec": 0.482,
+          "status": "success"
+        },
+        {
+          "Model": "Linear Discriminant Analysis",
+          "Accuracy": 0.7090909090909091,
+          "Precision": 0.6896405919661734,
+          "Recall": 0.7090909090909091,
+          "F1 Score": 0.6954070319923978,
+          "Model Path": "models\\linear_discriminant_analysis.pkl",
+          "training_time_sec": 0.079,
+          "status": "success"
+        },
+        {
+          "Model": "XGBoost",
+          "Accuracy": 0.6727272727272727,
+          "Precision": 0.6850668850668851,
+          "Recall": 0.6727272727272727,
+          "F1 Score": 0.6780467210807768,
+          "Model Path": "models\\xgboost.pkl",
+          "training_time_sec": 2.363,
+          "status": "success"
+        },
+        {
+          "Model": "Decision Tree",
+          "Accuracy": 0.6545454545454545,
+          "Precision": 0.6609344216155362,
+          "Recall": 0.6545454545454545,
+          "F1 Score": 0.6575364029909485,
+          "Model Path": "models\\decision_tree.pkl",
+          "training_time_sec": 0.266,
+          "status": "success"
+        },
+        {
+          "Model": "LightGBM",
+          "Accuracy": 0.6545454545454545,
+          "Precision": 0.6214876033057851,
+          "Recall": 0.6545454545454545,
+          "F1 Score": 0.6329641799521317,
+          "Model Path": "models\\lightgbm.pkl",
+          "training_time_sec": 0.199,
+          "status": "success"
+        },
+        {
+          "Model": "Gradient Boosting",
+          "Accuracy": 0.6181818181818182,
+          "Precision": 0.6251618350689558,
+          "Recall": 0.6181818181818182,
+          "F1 Score": 0.6214876033057851,
+          "Model Path": "models\\gradient_boosting.pkl",
+          "training_time_sec": 0.577,
+          "status": "success"
+        },
+        {
+          "Model": "CatBoost",
+          "Accuracy": 0.6,
+          "Precision": 0.5674418604651164,
+          "Recall": 0.6,
+          "F1 Score": 0.581184668989547,
+          "Model Path": "models\\catboost.pkl",
+          "training_time_sec": 1.212,
+          "status": "success"
+        },
+        {
+          "Model": "Naive Bayes",
+          "Accuracy": 0.41818181818181815,
+          "Precision": 0.7251646903820816,
+          "Recall": 0.41818181818181815,
+          "F1 Score": 0.3771260997067449,
+          "Model Path": "models\\naive_bayes.pkl",
+          "training_time_sec": 0.071,
+          "status": "success"
+        }
+      ],
+      "all_results": [
+        {
+          "Model": "Decision Tree",
+          "Accuracy": 0.6545454545454545,
+          "Precision": 0.6609344216155362,
+          "Recall": 0.6545454545454545,
+          "F1 Score": 0.6575364029909485,
+          "Model Path": "models\\decision_tree.pkl",
+          "training_time_sec": 0.266,
+          "status": "success"
+        },
+        {
+          "Model": "Naive Bayes",
+          "Accuracy": 0.41818181818181815,
+          "Precision": 0.7251646903820816,
+          "Recall": 0.41818181818181815,
+          "F1 Score": 0.3771260997067449,
+          "Model Path": "models\\naive_bayes.pkl",
+          "training_time_sec": 0.071,
+          "status": "success"
+        },
+        {
+          "Model": "Random Forest",
+          "Accuracy": 0.7090909090909091,
+          "Precision": 0.6988913525498891,
+          "Recall": 0.7090909090909091,
+          "F1 Score": 0.7030303030303031,
+          "Model Path": "models\\random_forest.pkl",
+          "training_time_sec": 1.224,
+          "status": "success"
+        },
+        {
+          "Model": "XGBoost",
+          "Accuracy": 0.6727272727272727,
+          "Precision": 0.6850668850668851,
+          "Recall": 0.6727272727272727,
+          "F1 Score": 0.6780467210807768,
+          "Model Path": "models\\xgboost.pkl",
+          "training_time_sec": 2.363,
+          "status": "success"
+        },
+        {
+          "Model": "CatBoost",
+          "Accuracy": 0.6,
+          "Precision": 0.5674418604651164,
+          "Recall": 0.6,
+          "F1 Score": 0.581184668989547,
+          "Model Path": "models\\catboost.pkl",
+          "training_time_sec": 1.212,
+          "status": "success"
+        },
+        {
+          "Model": "AdaBoost",
+          "Accuracy": 0.7454545454545455,
+          "Precision": 0.7293753865182435,
+          "Recall": 0.7454545454545455,
+          "F1 Score": 0.7020661157024793,
+          "Model Path": "models\\adaboost.pkl",
+          "training_time_sec": 1.075,
+          "status": "success"
+        },
+        {
+          "Model": "Gradient Boosting",
+          "Accuracy": 0.6181818181818182,
+          "Precision": 0.6251618350689558,
+          "Recall": 0.6181818181818182,
+          "F1 Score": 0.6214876033057851,
+          "Model Path": "models\\gradient_boosting.pkl",
+          "training_time_sec": 0.577,
+          "status": "success"
+        },
+        {
+          "Model": "HistGradientBoosting",
+          "Accuracy": 0.7272727272727273,
+          "Precision": 0.7137862137862138,
+          "Recall": 0.7272727272727273,
+          "F1 Score": 0.7182166492511319,
+          "Model Path": "models\\hist_gradient_boosting.pkl",
+          "training_time_sec": 4.177,
+          "status": "success"
+        },
+        {
+          "Model": "LightGBM",
+          "Accuracy": 0.6545454545454545,
+          "Precision": 0.6214876033057851,
+          "Recall": 0.6545454545454545,
+          "F1 Score": 0.6329641799521317,
+          "Model Path": "models\\lightgbm.pkl",
+          "training_time_sec": 0.199,
+          "status": "success"
+        },
+        {
+          "Model": "Logistic Regression",
+          "Accuracy": 0.7090909090909091,
+          "Precision": 0.6896405919661734,
+          "Recall": 0.7090909090909091,
+          "F1 Score": 0.6954070319923978,
+          "Model Path": "models\\logistic_regression.pkl",
+          "training_time_sec": 0.12,
+          "status": "success"
+        },
+        {
+          "Model": "KNN",
+          "Accuracy": 0.7090909090909091,
+          "Precision": 0.6735009671179883,
+          "Recall": 0.7090909090909091,
+          "F1 Score": 0.6741367159971812,
+          "Model Path": "models\\knn.pkl",
+          "training_time_sec": 0.482,
+          "status": "success"
+        },
+        {
+          "Model": "SVM",
+          "Accuracy": 0.7454545454545455,
+          "Precision": 0.7249516441005803,
+          "Recall": 0.7454545454545455,
+          "F1 Score": 0.7148696264975335,
+          "Model Path": "models\\svm.pkl",
+          "training_time_sec": 0.117,
+          "status": "success"
+        },
+        {
+          "Model": "Linear Discriminant Analysis",
+          "Accuracy": 0.7090909090909091,
+          "Precision": 0.6896405919661734,
+          "Recall": 0.7090909090909091,
+          "F1 Score": 0.6954070319923978,
+          "Model Path": "models\\linear_discriminant_analysis.pkl",
+          "training_time_sec": 0.079,
+          "status": "success"
+        },
+        {
+          "Model": "Quadratic Discriminant Analysis",
+          "Accuracy": 0.7454545454545455,
+          "Precision": 0.746524064171123,
+          "Recall": 0.7454545454545455,
+          "F1 Score": 0.6860606060606059,
+          "Model Path": "models\\quadratic_discriminant_analysis.pkl",
+          "training_time_sec": 0.091,
+          "status": "success"
+        },
+        {
+          "Model": "Multi Layer Perceptron",
+          "Accuracy": 0.7454545454545455,
+          "Precision": 0.7454545454545455,
+          "Recall": 0.7454545454545455,
+          "F1 Score": 0.7454545454545455,
+          "Model Path": "models\\mlp_classifier.pkl",
+          "training_time_sec": 1.35,
+          "status": "success"
+        }
+      ]
+    },
+    "approach_2": {
+      "selected_model_b": "CatBoost",
+      "recommendation_score": 16.0,
+      "reasons": [
+        "Categorical features are present; evaluate categorical-aware boosting",
+        "Mixed feature types make categorical-aware boosting worth evaluating",
+        "Categorical columns form at least half of all features",
+        "Multiple categorical features with sufficient observations per feature",
+        "Missing values are present; evaluate CatBoost's missing-value handling",
+        "Multiple categorical features make categorical-aware boosting worth evaluating",
+        "Mixed numerical and categorical features make CatBoost a candidate",
+        "At least 70% of features are categorical, so CatBoost is a strong candidate to test",
+        "Mixed numeric and categorical columns with at least 200 rows warrant a CatBoost comparison"
+      ],
+      "rules_triggered_count": 9,
+      "message": "Rule-based model recommendation completed.",
+      "trainer_available": true,
+      "is_trained": false,
+      "trained_metrics": null,
+      "rule_engine_type": "160 Classification Evaluation Heuristics (Rules 1\u2013160)"
+    },
+    "tuning_results": {
+      "AdaBoost": {
+        "Model": "AdaBoost",
+        "Best Parameters": {
+          "n_estimators": 100,
+          "learning_rate": 0.1,
+          "estimator__min_samples_split": 5,
+          "estimator__min_samples_leaf": 1,
+          "estimator__max_depth": 4
+        },
+        "CV Score": 0.7199,
+        "Accuracy": 0.6182,
+        "Precision": 0.5789,
+        "Recall": 0.6182,
+        "F1 Score": 0.5943,
+        "Model Path": "models\\tuned_approach_1_adaboost.pkl",
+        "tuning_time_sec": 70.483,
+        "stage": "approach_1",
+        "search_method": "RandomizedSearchCV (n_iter=20, scoring='f1_weighted')",
+        "baseline_metrics": {
+          "Accuracy": 0.7455,
+          "Precision": 0.7294,
+          "Recall": 0.7455,
+          "F1 Score": 0.7021
+        }
+      }
+    },
+    "cross_validation": {
+      "model_path": "models\\adaboost.pkl",
+      "model_name": "AdaBoost",
+      "fold_scores": [
+        0.7818,
+        0.6727,
+        0.7407,
+        0.7963,
+        0.7407
+      ],
+      "mean_accuracy": 0.7465,
+      "std_accuracy": 0.043,
+      "n_splits": 5
+    },
+    "shap_available": false
+  },
+  {
+    "analysis_id": "e2b0f119-0",
+    "completed_at": "2026-11-03T21:26:57.615650",
+    "dataset_name": "dry_bean.csv",
+    "rows": 13611,
+    "columns": 17,
+    "feature_count": 16,
+    "target_column": "Class",
+    "task_type": "classification",
+    "mode": "both",
+    "selection_metric": "Accuracy",
+    "approach_1": {
+      "selected_model_a": {
+        "Model": "XGBoost",
+        "Accuracy": 0.9258171134777818,
+        "Precision": 0.925957678123246,
+        "Recall": 0.9258171134777818,
+        "F1 Score": 0.9257735500390681,
+        "Model Path": "models\\xgboost.pkl",
+        "training_time_sec": 11.849,
+        "status": "success"
+      },
+      "selection_metric": "Accuracy",
+      "candidate_count": 15,
+      "candidate_models": [
+        {
+          "Model": "XGBoost",
+          "Accuracy": 0.9258171134777818,
+          "Precision": 0.925957678123246,
+          "Recall": 0.9258171134777818,
+          "F1 Score": 0.9257735500390681,
+          "Model Path": "models\\xgboost.pkl",
+          "training_time_sec": 11.849,
+          "status": "success"
+        },
+        {
+          "Model": "CatBoost",
+          "Accuracy": 0.9243481454278369,
+          "Precision": 0.9244548684078585,
+          "Recall": 0.9243481454278369,
+          "F1 Score": 0.9242312351880839,
+          "Model Path": "models\\catboost.pkl",
+          "training_time_sec": 9.106,
+          "status": "success"
+        },
+        {
+          "Model": "HistGradientBoosting",
+          "Accuracy": 0.9239809034153507,
+          "Precision": 0.9242863363301562,
+          "Recall": 0.9239809034153507,
+          "F1 Score": 0.9239872852987805,
+          "Model Path": "models\\hist_gradient_boosting.pkl",
+          "training_time_sec": 8.471,
+          "status": "success"
+        },
+        {
+          "Model": "LightGBM",
+          "Accuracy": 0.9239809034153507,
+          "Precision": 0.924157581887744,
+          "Recall": 0.9239809034153507,
+          "F1 Score": 0.9240139031618331,
+          "Model Path": "models\\lightgbm.pkl",
+          "training_time_sec": 6.302,
+          "status": "success"
+        },
+        {
+          "Model": "Gradient Boosting",
+          "Accuracy": 0.922879177377892,
+          "Precision": 0.9229140327257976,
+          "Recall": 0.922879177377892,
+          "F1 Score": 0.9226711357351975,
+          "Model Path": "models\\gradient_boosting.pkl",
+          "training_time_sec": 155.974,
+          "status": "success"
+        },
+        {
+          "Model": "Random Forest",
+          "Accuracy": 0.9221446933529196,
+          "Precision": 0.922157115650718,
+          "Recall": 0.9221446933529196,
+          "F1 Score": 0.922070695065038,
+          "Model Path": "models\\random_forest.pkl",
+          "training_time_sec": 3.513,
+          "status": "success"
+        },
+        {
+          "Model": "Linear Discriminant Analysis",
+          "Accuracy": 0.9045170767535806,
+          "Precision": 0.9144848887499271,
+          "Recall": 0.9045170767535806,
+          "F1 Score": 0.9059321933003601,
+          "Model Path": "models\\linear_discriminant_analysis.pkl",
+          "training_time_sec": 0.262,
+          "status": "success"
+        },
+        {
+          "Model": "Quadratic Discriminant Analysis",
+          "Accuracy": 0.89386705839148,
+          "Precision": 0.8952582434760223,
+          "Recall": 0.89386705839148,
+          "F1 Score": 0.8938745748685908,
+          "Model Path": "models\\quadratic_discriminant_analysis.pkl",
+          "training_time_sec": 0.279,
+          "status": "success"
+        },
+        {
+          "Model": "Decision Tree",
+          "Accuracy": 0.8916636063165626,
+          "Precision": 0.8912470304116911,
+          "Recall": 0.8916636063165626,
+          "F1 Score": 0.8913219229524194,
+          "Model Path": "models\\decision_tree.pkl",
+          "training_time_sec": 1.003,
+          "status": "success"
+        },
+        {
+          "Model": "Logistic Regression",
+          "Accuracy": 0.8868894601542416,
+          "Precision": 0.8876927719728981,
+          "Recall": 0.8868894601542416,
+          "F1 Score": 0.8869092534349533,
+          "Model Path": "models\\logistic_regression.pkl",
+          "training_time_sec": 8.048,
+          "status": "success"
+        },
+        {
+          "Model": "Naive Bayes",
+          "Accuracy": 0.7638633859713552,
+          "Precision": 0.7653708847319572,
+          "Recall": 0.7638633859713552,
+          "F1 Score": 0.7614742997970327,
+          "Model Path": "models\\naive_bayes.pkl",
+          "training_time_sec": 0.242,
+          "status": "success"
+        },
+        {
+          "Model": "KNN",
+          "Accuracy": 0.7242012486228424,
+          "Precision": 0.7239981327159262,
+          "Recall": 0.7242012486228424,
+          "F1 Score": 0.7216816149618873,
+          "Model Path": "models\\knn.pkl",
+          "training_time_sec": 0.724,
+          "status": "success"
+        },
+        {
+          "Model": "AdaBoost",
+          "Accuracy": 0.6507528461255968,
+          "Precision": 0.6905058965775338,
+          "Recall": 0.6507528461255968,
+          "F1 Score": 0.5793050238060073,
+          "Model Path": "models\\adaboost.pkl",
+          "training_time_sec": 12.041,
+          "status": "success"
+        },
+        {
+          "Model": "SVM",
+          "Accuracy": 0.6371648916636063,
+          "Precision": 0.6231663817655847,
+          "Recall": 0.6371648916636063,
+          "F1 Score": 0.6014133504868324,
+          "Model Path": "models\\svm.pkl",
+          "training_time_sec": 39.924,
+          "status": "success"
+        },
+        {
+          "Model": "Multi Layer Perceptron",
+          "Accuracy": 0.5629820051413882,
+          "Precision": 0.5369152339378203,
+          "Recall": 0.5629820051413882,
+          "F1 Score": 0.4782893693634529,
+          "Model Path": "models\\mlp_classifier.pkl",
+          "training_time_sec": 18.042,
+          "status": "success"
+        }
+      ],
+      "all_results": [
+        {
+          "Model": "Decision Tree",
+          "Accuracy": 0.8916636063165626,
+          "Precision": 0.8912470304116911,
+          "Recall": 0.8916636063165626,
+          "F1 Score": 0.8913219229524194,
+          "Model Path": "models\\decision_tree.pkl",
+          "training_time_sec": 1.003,
+          "status": "success"
+        },
+        {
+          "Model": "Naive Bayes",
+          "Accuracy": 0.7638633859713552,
+          "Precision": 0.7653708847319572,
+          "Recall": 0.7638633859713552,
+          "F1 Score": 0.7614742997970327,
+          "Model Path": "models\\naive_bayes.pkl",
+          "training_time_sec": 0.242,
+          "status": "success"
+        },
+        {
+          "Model": "Random Forest",
+          "Accuracy": 0.9221446933529196,
+          "Precision": 0.922157115650718,
+          "Recall": 0.9221446933529196,
+          "F1 Score": 0.922070695065038,
+          "Model Path": "models\\random_forest.pkl",
+          "training_time_sec": 3.513,
+          "status": "success"
+        },
+        {
+          "Model": "XGBoost",
+          "Accuracy": 0.9258171134777818,
+          "Precision": 0.925957678123246,
+          "Recall": 0.9258171134777818,
+          "F1 Score": 0.9257735500390681,
+          "Model Path": "models\\xgboost.pkl",
+          "training_time_sec": 11.849,
+          "status": "success"
+        },
+        {
+          "Model": "CatBoost",
+          "Accuracy": 0.9243481454278369,
+          "Precision": 0.9244548684078585,
+          "Recall": 0.9243481454278369,
+          "F1 Score": 0.9242312351880839,
+          "Model Path": "models\\catboost.pkl",
+          "training_time_sec": 9.106,
+          "status": "success"
+        },
+        {
+          "Model": "AdaBoost",
+          "Accuracy": 0.6507528461255968,
+          "Precision": 0.6905058965775338,
+          "Recall": 0.6507528461255968,
+          "F1 Score": 0.5793050238060073,
+          "Model Path": "models\\adaboost.pkl",
+          "training_time_sec": 12.041,
+          "status": "success"
+        },
+        {
+          "Model": "Gradient Boosting",
+          "Accuracy": 0.922879177377892,
+          "Precision": 0.9229140327257976,
+          "Recall": 0.922879177377892,
+          "F1 Score": 0.9226711357351975,
+          "Model Path": "models\\gradient_boosting.pkl",
+          "training_time_sec": 155.974,
+          "status": "success"
+        },
+        {
+          "Model": "HistGradientBoosting",
+          "Accuracy": 0.9239809034153507,
+          "Precision": 0.9242863363301562,
+          "Recall": 0.9239809034153507,
+          "F1 Score": 0.9239872852987805,
+          "Model Path": "models\\hist_gradient_boosting.pkl",
+          "training_time_sec": 8.471,
+          "status": "success"
+        },
+        {
+          "Model": "LightGBM",
+          "Accuracy": 0.9239809034153507,
+          "Precision": 0.924157581887744,
+          "Recall": 0.9239809034153507,
+          "F1 Score": 0.9240139031618331,
+          "Model Path": "models\\lightgbm.pkl",
+          "training_time_sec": 6.302,
+          "status": "success"
+        },
+        {
+          "Model": "Logistic Regression",
+          "Accuracy": 0.8868894601542416,
+          "Precision": 0.8876927719728981,
+          "Recall": 0.8868894601542416,
+          "F1 Score": 0.8869092534349533,
+          "Model Path": "models\\logistic_regression.pkl",
+          "training_time_sec": 8.048,
+          "status": "success"
+        },
+        {
+          "Model": "KNN",
+          "Accuracy": 0.7242012486228424,
+          "Precision": 0.7239981327159262,
+          "Recall": 0.7242012486228424,
+          "F1 Score": 0.7216816149618873,
+          "Model Path": "models\\knn.pkl",
+          "training_time_sec": 0.724,
+          "status": "success"
+        },
+        {
+          "Model": "SVM",
+          "Accuracy": 0.6371648916636063,
+          "Precision": 0.6231663817655847,
+          "Recall": 0.6371648916636063,
+          "F1 Score": 0.6014133504868324,
+          "Model Path": "models\\svm.pkl",
+          "training_time_sec": 39.924,
+          "status": "success"
+        },
+        {
+          "Model": "Linear Discriminant Analysis",
+          "Accuracy": 0.9045170767535806,
+          "Precision": 0.9144848887499271,
+          "Recall": 0.9045170767535806,
+          "F1 Score": 0.9059321933003601,
+          "Model Path": "models\\linear_discriminant_analysis.pkl",
+          "training_time_sec": 0.262,
+          "status": "success"
+        },
+        {
+          "Model": "Quadratic Discriminant Analysis",
+          "Accuracy": 0.89386705839148,
+          "Precision": 0.8952582434760223,
+          "Recall": 0.89386705839148,
+          "F1 Score": 0.8938745748685908,
+          "Model Path": "models\\quadratic_discriminant_analysis.pkl",
+          "training_time_sec": 0.279,
+          "status": "success"
+        },
+        {
+          "Model": "Multi Layer Perceptron",
+          "Accuracy": 0.5629820051413882,
+          "Precision": 0.5369152339378203,
+          "Recall": 0.5629820051413882,
+          "F1 Score": 0.4782893693634529,
+          "Model Path": "models\\mlp_classifier.pkl",
+          "training_time_sec": 18.042,
+          "status": "success"
+        }
+      ]
+    },
+    "approach_2": {
+      "selected_model_b": "Random Forest",
+      "recommendation_score": 18.0,
+      "reasons": [
+        "Dataset has sufficient observations relative to feature count for ensemble evaluation",
+        "Moderate feature count and sufficient observations make Random Forest a candidate",
+        "Dataset size and feature count support evaluating tree ensembles",
+        "No missing values simplify preprocessing for Random Forest",
+        "Random Forest supports multiclass classification",
+        "Multiple classes with sufficient samples per class suit tree-ensemble evaluation",
+        "Tree ensembles are worth evaluating when minority-class examples are available",
+        "Multiple features and sufficient observations make Random Forest worth evaluating",
+        "Random Forest is a general-purpose candidate for classification",
+        "At least half of numeric features are strongly skewed; compare a tree ensemble",
+        "Class imbalance is substantial; compare balanced sampling or class-weighted tree ensembles"
+      ],
+      "rules_triggered_count": 11,
+      "message": "Rule-based model recommendation completed.",
+      "trainer_available": true,
+      "is_trained": false,
+      "trained_metrics": null,
+      "rule_engine_type": "160 Classification Evaluation Heuristics (Rules 1\u2013160)"
+    },
+    "tuning_results": {
+      "XGBoost": {
+        "Model": "XGBoost",
+        "Best Parameters": {
+          "subsample": 0.8,
+          "n_estimators": 100,
+          "max_depth": 8,
+          "learning_rate": 0.2,
+          "colsample_bytree": 1.0
+        },
+        "CV Score": 0.9313,
+        "Accuracy": 0.9251,
+        "Precision": 0.9253,
+        "Recall": 0.9251,
+        "F1 Score": 0.9251,
+        "Model Path": "models\\tuned_approach_1_xgboost.pkl",
+        "tuning_time_sec": 153.143,
+        "stage": "approach_1",
+        "search_method": "RandomizedSearchCV (n_iter=20, scoring='f1_weighted')",
+        "baseline_metrics": {
+          "Accuracy": 0.9258,
+          "Precision": 0.926,
+          "Recall": 0.9258,
+          "F1 Score": 0.9258
+        }
+      },
+      "Decision Tree": {
+        "Model": "Decision Tree",
+        "Best Parameters": {
+          "min_samples_split": 10,
+          "min_samples_leaf": 8,
+          "max_depth": 10,
+          "criterion": "log_loss"
+        },
+        "CV Score": 0.9127,
+        "Accuracy": 0.9034,
+        "Precision": 0.9033,
+        "Recall": 0.9034,
+        "F1 Score": 0.9032,
+        "Model Path": "models\\tuned_approach_1_decision_tree.pkl",
+        "tuning_time_sec": 19.905,
+        "stage": "approach_1",
+        "search_method": "RandomizedSearchCV (n_iter=20, scoring='f1_weighted')",
+        "baseline_metrics": {
+          "Accuracy": 0.8917,
+          "Precision": 0.8912,
+          "Recall": 0.8917,
+          "F1 Score": 0.8913
+        }
+      }
+    },
+    "cross_validation": {
+      "model_path": "models\\xgboost.pkl",
+      "model_name": "XGBoost",
+      "fold_scores": [
+        0.9218,
+        0.9313,
+        0.9247,
+        0.9335,
+        0.928
+      ],
+      "mean_accuracy": 0.9279,
+      "std_accuracy": 0.0043,
+      "n_splits": 5
+    },
+    "shap_available": true
+  },
+  {
+    "analysis_id": "5aa2ed07-f",
+    "completed_at": "2026-11-03T21:13:04.143406",
+    "dataset_name": "iris.csv",
+    "rows": 150,
+    "columns": 5,
+    "feature_count": 4,
+    "target_column": "variety",
+    "task_type": "classification",
+    "mode": "both",
+    "selection_metric": "Accuracy",
+    "approach_1": {
+      "selected_model_a": {
+        "Model": "KNN",
+        "Accuracy": 1.0,
+        "Precision": 1.0,
+        "Recall": 1.0,
+        "F1 Score": 1.0,
+        "Model Path": "models\\knn.pkl",
+        "training_time_sec": 0.037,
+        "status": "success"
+      },
+      "selection_metric": "Accuracy",
+      "candidate_count": 15,
+      "candidate_models": [
+        {
+          "Model": "KNN",
+          "Accuracy": 1.0,
+          "Precision": 1.0,
+          "Recall": 1.0,
+          "F1 Score": 1.0,
+          "Model Path": "models\\knn.pkl",
+          "training_time_sec": 0.037,
+          "status": "success"
+        },
+        {
+          "Model": "Linear Discriminant Analysis",
+          "Accuracy": 1.0,
+          "Precision": 1.0,
+          "Recall": 1.0,
+          "F1 Score": 1.0,
+          "Model Path": "models\\linear_discriminant_analysis.pkl",
+          "training_time_sec": 0.045,
+          "status": "success"
+        },
+        {
+          "Model": "Multi Layer Perceptron",
+          "Accuracy": 1.0,
+          "Precision": 1.0,
+          "Recall": 1.0,
+          "F1 Score": 1.0,
+          "Model Path": "models\\mlp_classifier.pkl",
+          "training_time_sec": 0.904,
+          "status": "success"
+        },
+        {
+          "Model": "Naive Bayes",
+          "Accuracy": 0.9666666666666667,
+          "Precision": 0.9696969696969696,
+          "Recall": 0.9666666666666667,
+          "F1 Score": 0.9665831244778613,
+          "Model Path": "models\\naive_bayes.pkl",
+          "training_time_sec": 0.044,
+          "status": "success"
+        },
+        {
+          "Model": "Gradient Boosting",
+          "Accuracy": 0.9666666666666667,
+          "Precision": 0.9696969696969696,
+          "Recall": 0.9666666666666667,
+          "F1 Score": 0.9665831244778613,
+          "Model Path": "models\\gradient_boosting.pkl",
+          "training_time_sec": 1.846,
+          "status": "success"
+        },
+        {
+          "Model": "Logistic Regression",
+          "Accuracy": 0.9666666666666667,
+          "Precision": 0.9696969696969696,
+          "Recall": 0.9666666666666667,
+          "F1 Score": 0.9665831244778613,
+          "Model Path": "models\\logistic_regression.pkl",
+          "training_time_sec": 0.101,
+          "status": "success"
+        },
+        {
+          "Model": "SVM",
+          "Accuracy": 0.9666666666666667,
+          "Precision": 0.9696969696969696,
+          "Recall": 0.9666666666666667,
+          "F1 Score": 0.9665831244778613,
+          "Model Path": "models\\svm.pkl",
+          "training_time_sec": 0.045,
+          "status": "success"
+        },
+        {
+          "Model": "Decision Tree",
+          "Accuracy": 0.9333333333333333,
+          "Precision": 0.9333333333333333,
+          "Recall": 0.9333333333333333,
+          "F1 Score": 0.9333333333333333,
+          "Model Path": "models\\decision_tree.pkl",
+          "training_time_sec": 0.054,
+          "status": "success"
+        },
+        {
+          "Model": "XGBoost",
+          "Accuracy": 0.9333333333333333,
+          "Precision": 0.9333333333333333,
+          "Recall": 0.9333333333333333,
+          "F1 Score": 0.9333333333333333,
+          "Model Path": "models\\xgboost.pkl",
+          "training_time_sec": 1.892,
+          "status": "success"
+        },
+        {
+          "Model": "CatBoost",
+          "Accuracy": 0.9333333333333333,
+          "Precision": 0.9333333333333333,
+          "Recall": 0.9333333333333333,
+          "F1 Score": 0.9333333333333333,
+          "Model Path": "models\\catboost.pkl",
+          "training_time_sec": 0.417,
+          "status": "success"
+        },
+        {
+          "Model": "AdaBoost",
+          "Accuracy": 0.9333333333333333,
+          "Precision": 0.9333333333333333,
+          "Recall": 0.9333333333333333,
+          "F1 Score": 0.9333333333333333,
+          "Model Path": "models\\adaboost.pkl",
+          "training_time_sec": 1.24,
+          "status": "success"
+        },
+        {
+          "Model": "Random Forest",
+          "Accuracy": 0.9,
+          "Precision": 0.9023569023569024,
+          "Recall": 0.9,
+          "F1 Score": 0.8997493734335839,
+          "Model Path": "models\\random_forest.pkl",
+          "training_time_sec": 0.95,
+          "status": "success"
+        },
+        {
+          "Model": "HistGradientBoosting",
+          "Accuracy": 0.9,
+          "Precision": 0.9023569023569024,
+          "Recall": 0.9,
+          "F1 Score": 0.8997493734335839,
+          "Model Path": "models\\hist_gradient_boosting.pkl",
+          "training_time_sec": 2.041,
+          "status": "success"
+        },
+        {
+          "Model": "LightGBM",
+          "Accuracy": 0.9,
+          "Precision": 0.9023569023569024,
+          "Recall": 0.9,
+          "F1 Score": 0.8997493734335839,
+          "Model Path": "models\\lightgbm.pkl",
+          "training_time_sec": 1.239,
+          "status": "success"
+        },
+        {
+          "Model": "Quadratic Discriminant Analysis",
+          "Accuracy": 0.9,
+          "Precision": 0.9023569023569024,
+          "Recall": 0.9,
+          "F1 Score": 0.8997493734335839,
+          "Model Path": "models\\quadratic_discriminant_analysis.pkl",
+          "training_time_sec": 0.044,
+          "status": "success"
+        }
+      ],
+      "all_results": [
+        {
+          "Model": "Decision Tree",
+          "Accuracy": 0.9333333333333333,
+          "Precision": 0.9333333333333333,
+          "Recall": 0.9333333333333333,
+          "F1 Score": 0.9333333333333333,
+          "Model Path": "models\\decision_tree.pkl",
+          "training_time_sec": 0.054,
+          "status": "success"
+        },
+        {
+          "Model": "Naive Bayes",
+          "Accuracy": 0.9666666666666667,
+          "Precision": 0.9696969696969696,
+          "Recall": 0.9666666666666667,
+          "F1 Score": 0.9665831244778613,
+          "Model Path": "models\\naive_bayes.pkl",
+          "training_time_sec": 0.044,
+          "status": "success"
+        },
+        {
+          "Model": "Random Forest",
+          "Accuracy": 0.9,
+          "Precision": 0.9023569023569024,
+          "Recall": 0.9,
+          "F1 Score": 0.8997493734335839,
+          "Model Path": "models\\random_forest.pkl",
+          "training_time_sec": 0.95,
+          "status": "success"
+        },
+        {
+          "Model": "XGBoost",
+          "Accuracy": 0.9333333333333333,
+          "Precision": 0.9333333333333333,
+          "Recall": 0.9333333333333333,
+          "F1 Score": 0.9333333333333333,
+          "Model Path": "models\\xgboost.pkl",
+          "training_time_sec": 1.892,
+          "status": "success"
+        },
+        {
+          "Model": "CatBoost",
+          "Accuracy": 0.9333333333333333,
+          "Precision": 0.9333333333333333,
+          "Recall": 0.9333333333333333,
+          "F1 Score": 0.9333333333333333,
+          "Model Path": "models\\catboost.pkl",
+          "training_time_sec": 0.417,
+          "status": "success"
+        },
+        {
+          "Model": "AdaBoost",
+          "Accuracy": 0.9333333333333333,
+          "Precision": 0.9333333333333333,
+          "Recall": 0.9333333333333333,
+          "F1 Score": 0.9333333333333333,
+          "Model Path": "models\\adaboost.pkl",
+          "training_time_sec": 1.24,
+          "status": "success"
+        },
+        {
+          "Model": "Gradient Boosting",
+          "Accuracy": 0.9666666666666667,
+          "Precision": 0.9696969696969696,
+          "Recall": 0.9666666666666667,
+          "F1 Score": 0.9665831244778613,
+          "Model Path": "models\\gradient_boosting.pkl",
+          "training_time_sec": 1.846,
+          "status": "success"
+        },
+        {
+          "Model": "HistGradientBoosting",
+          "Accuracy": 0.9,
+          "Precision": 0.9023569023569024,
+          "Recall": 0.9,
+          "F1 Score": 0.8997493734335839,
+          "Model Path": "models\\hist_gradient_boosting.pkl",
+          "training_time_sec": 2.041,
+          "status": "success"
+        },
+        {
+          "Model": "LightGBM",
+          "Accuracy": 0.9,
+          "Precision": 0.9023569023569024,
+          "Recall": 0.9,
+          "F1 Score": 0.8997493734335839,
+          "Model Path": "models\\lightgbm.pkl",
+          "training_time_sec": 1.239,
+          "status": "success"
+        },
+        {
+          "Model": "Logistic Regression",
+          "Accuracy": 0.9666666666666667,
+          "Precision": 0.9696969696969696,
+          "Recall": 0.9666666666666667,
+          "F1 Score": 0.9665831244778613,
+          "Model Path": "models\\logistic_regression.pkl",
+          "training_time_sec": 0.101,
+          "status": "success"
+        },
+        {
+          "Model": "KNN",
+          "Accuracy": 1.0,
+          "Precision": 1.0,
+          "Recall": 1.0,
+          "F1 Score": 1.0,
+          "Model Path": "models\\knn.pkl",
+          "training_time_sec": 0.037,
+          "status": "success"
+        },
+        {
+          "Model": "SVM",
+          "Accuracy": 0.9666666666666667,
+          "Precision": 0.9696969696969696,
+          "Recall": 0.9666666666666667,
+          "F1 Score": 0.9665831244778613,
+          "Model Path": "models\\svm.pkl",
+          "training_time_sec": 0.045,
+          "status": "success"
+        },
+        {
+          "Model": "Linear Discriminant Analysis",
+          "Accuracy": 1.0,
+          "Precision": 1.0,
+          "Recall": 1.0,
+          "F1 Score": 1.0,
+          "Model Path": "models\\linear_discriminant_analysis.pkl",
+          "training_time_sec": 0.045,
+          "status": "success"
+        },
+        {
+          "Model": "Quadratic Discriminant Analysis",
+          "Accuracy": 0.9,
+          "Precision": 0.9023569023569024,
+          "Recall": 0.9,
+          "F1 Score": 0.8997493734335839,
+          "Model Path": "models\\quadratic_discriminant_analysis.pkl",
+          "training_time_sec": 0.044,
+          "status": "success"
+        },
+        {
+          "Model": "Multi Layer Perceptron",
+          "Accuracy": 1.0,
+          "Precision": 1.0,
+          "Recall": 1.0,
+          "F1 Score": 1.0,
+          "Model Path": "models\\mlp_classifier.pkl",
+          "training_time_sec": 0.904,
+          "status": "success"
+        }
+      ]
+    },
+    "approach_2": {
+      "selected_model_b": "KNN",
+      "recommendation_score": 9.0,
+      "reasons": [
+        "Low-dimensional dataset makes distance-based classification worth evaluating",
+        "Low-dimensional data with sufficient samples makes KNN worth evaluating",
+        "Low-dimensional data with sufficient observations makes distance-based learning worth evaluating",
+        "Low-dimensional data with sufficient observations makes KNN a candidate",
+        "Each class has at least 30 rows and feature count is modest; compare KNN after scaling"
+      ],
+      "rules_triggered_count": 5,
+      "message": "Rule-based model recommendation completed.",
+      "trainer_available": true,
+      "is_trained": false,
+      "trained_metrics": null,
+      "rule_engine_type": "160 Classification Evaluation Heuristics (Rules 1\u2013160)"
+    },
+    "tuning_results": {},
+    "cross_validation": null,
+    "shap_available": false
+  },
+  {
+    "analysis_id": "fe1fd538-6",
+    "completed_at": "2026-11-03T21:12:52.654323",
+    "dataset_name": "StudentsPerformance.csv",
+    "rows": 1000,
+    "columns": 8,
+    "feature_count": 7,
+    "target_column": "writing score",
+    "task_type": "regression",
+    "mode": "both",
+    "selection_metric": "R2 Score",
+    "approach_1": {
+      "selected_model_a": {
+        "Model": "Linear Regression",
+        "MAE": 3.200272452120668,
+        "MSE": 14.911021437246667,
+        "RMSE": 3.8614791773680026,
+        "R2 Score": 0.9381328994057507,
+        "Model Path": "models\\linear_regression.pkl",
+        "training_time_sec": 0.062,
+        "status": "success"
+      },
+      "selection_metric": "R2 Score",
+      "candidate_count": 1,
+      "candidate_models": [
+        {
+          "Model": "Linear Regression",
+          "MAE": 3.200272452120668,
+          "MSE": 14.911021437246667,
+          "RMSE": 3.8614791773680026,
+          "R2 Score": 0.9381328994057507,
+          "Model Path": "models\\linear_regression.pkl",
+          "training_time_sec": 0.062,
+          "status": "success"
+        }
+      ],
+      "all_results": [
+        {
+          "Model": "Linear Regression",
+          "MAE": 3.200272452120668,
+          "MSE": 14.911021437246667,
+          "RMSE": 3.8614791773680026,
+          "R2 Score": 0.9381328994057507,
+          "Model Path": "models\\linear_regression.pkl",
+          "training_time_sec": 0.062,
+          "status": "success"
+        }
+      ]
+    },
+    "approach_2": {
+      "selected_model_b": "CatBoost Regressor",
+      "recommendation_score": 8.0,
+      "reasons": [
+        "Categorical features are present; use a compatible categorical-handling pipeline",
+        "Mixed numeric and categorical features warrant categorical-aware boosting",
+        "Several categorical columns make CatBoost worth benchmarking",
+        "Target variability and sample count support testing CatBoost regression",
+        "Categorical features make CatBoost regression worth evaluating with proper input handling"
+      ],
+      "rules_triggered_count": 5,
+      "message": "Rule-based model recommendation completed.",
+      "trainer_available": false,
+      "is_trained": false,
+      "trained_metrics": null,
+      "rule_engine_type": "85 Regression Evaluation Heuristics (Rules R1\u2013R85)"
+    },
+    "tuning_results": {},
+    "cross_validation": null,
+    "shap_available": false
+  },
+  {
+    "analysis_id": "f98f1534-1",
+    "completed_at": "2026-11-03T21:12:30.101861",
+    "dataset_name": "iris.csv",
+    "rows": 150,
+    "columns": 5,
+    "feature_count": 4,
+    "target_column": "variety",
+    "task_type": "classification",
+    "mode": "both",
+    "selection_metric": "Accuracy",
+    "approach_1": {
+      "selected_model_a": {
+        "Model": "KNN",
+        "Accuracy": 1.0,
+        "Precision": 1.0,
+        "Recall": 1.0,
+        "F1 Score": 1.0,
+        "Model Path": "models\\knn.pkl",
+        "training_time_sec": 0.068,
+        "status": "success"
+      },
+      "selection_metric": "Accuracy",
+      "candidate_count": 15,
+      "candidate_models": [
+        {
+          "Model": "KNN",
+          "Accuracy": 1.0,
+          "Precision": 1.0,
+          "Recall": 1.0,
+          "F1 Score": 1.0,
+          "Model Path": "models\\knn.pkl",
+          "training_time_sec": 0.068,
+          "status": "success"
+        },
+        {
+          "Model": "Linear Discriminant Analysis",
+          "Accuracy": 1.0,
+          "Precision": 1.0,
+          "Recall": 1.0,
+          "F1 Score": 1.0,
+          "Model Path": "models\\linear_discriminant_analysis.pkl",
+          "training_time_sec": 0.056,
+          "status": "success"
+        },
+        {
+          "Model": "Multi Layer Perceptron",
+          "Accuracy": 1.0,
+          "Precision": 1.0,
+          "Recall": 1.0,
+          "F1 Score": 1.0,
+          "Model Path": "models\\mlp_classifier.pkl",
+          "training_time_sec": 0.928,
+          "status": "success"
+        },
+        {
+          "Model": "Naive Bayes",
+          "Accuracy": 0.9666666666666667,
+          "Precision": 0.9696969696969696,
+          "Recall": 0.9666666666666667,
+          "F1 Score": 0.9665831244778613,
+          "Model Path": "models\\naive_bayes.pkl",
+          "training_time_sec": 0.06,
+          "status": "success"
+        },
+        {
+          "Model": "Gradient Boosting",
+          "Accuracy": 0.9666666666666667,
+          "Precision": 0.9696969696969696,
+          "Recall": 0.9666666666666667,
+          "F1 Score": 0.9665831244778613,
+          "Model Path": "models\\gradient_boosting.pkl",
+          "training_time_sec": 2.046,
+          "status": "success"
+        },
+        {
+          "Model": "Logistic Regression",
+          "Accuracy": 0.9666666666666667,
+          "Precision": 0.9696969696969696,
+          "Recall": 0.9666666666666667,
+          "F1 Score": 0.9665831244778613,
+          "Model Path": "models\\logistic_regression.pkl",
+          "training_time_sec": 0.146,
+          "status": "success"
+        },
+        {
+          "Model": "SVM",
+          "Accuracy": 0.9666666666666667,
+          "Precision": 0.9696969696969696,
+          "Recall": 0.9666666666666667,
+          "F1 Score": 0.9665831244778613,
+          "Model Path": "models\\svm.pkl",
+          "training_time_sec": 0.052,
+          "status": "success"
+        },
+        {
+          "Model": "Decision Tree",
+          "Accuracy": 0.9333333333333333,
+          "Precision": 0.9333333333333333,
+          "Recall": 0.9333333333333333,
+          "F1 Score": 0.9333333333333333,
+          "Model Path": "models\\decision_tree.pkl",
+          "training_time_sec": 0.363,
+          "status": "success"
+        },
+        {
+          "Model": "XGBoost",
+          "Accuracy": 0.9333333333333333,
+          "Precision": 0.9333333333333333,
+          "Recall": 0.9333333333333333,
+          "F1 Score": 0.9333333333333333,
+          "Model Path": "models\\xgboost.pkl",
+          "training_time_sec": 44.309,
+          "status": "success"
+        },
+        {
+          "Model": "CatBoost",
+          "Accuracy": 0.9333333333333333,
+          "Precision": 0.9333333333333333,
+          "Recall": 0.9333333333333333,
+          "F1 Score": 0.9333333333333333,
+          "Model Path": "models\\catboost.pkl",
+          "training_time_sec": 0.796,
+          "status": "success"
+        },
+        {
+          "Model": "AdaBoost",
+          "Accuracy": 0.9333333333333333,
+          "Precision": 0.9333333333333333,
+          "Recall": 0.9333333333333333,
+          "F1 Score": 0.9333333333333333,
+          "Model Path": "models\\adaboost.pkl",
+          "training_time_sec": 1.657,
+          "status": "success"
+        },
+        {
+          "Model": "Random Forest",
+          "Accuracy": 0.9,
+          "Precision": 0.9023569023569024,
+          "Recall": 0.9,
+          "F1 Score": 0.8997493734335839,
+          "Model Path": "models\\random_forest.pkl",
+          "training_time_sec": 1.74,
+          "status": "success"
+        },
+        {
+          "Model": "HistGradientBoosting",
+          "Accuracy": 0.9,
+          "Precision": 0.9023569023569024,
+          "Recall": 0.9,
+          "F1 Score": 0.8997493734335839,
+          "Model Path": "models\\hist_gradient_boosting.pkl",
+          "training_time_sec": 11.686,
+          "status": "success"
+        },
+        {
+          "Model": "LightGBM",
+          "Accuracy": 0.9,
+          "Precision": 0.9023569023569024,
+          "Recall": 0.9,
+          "F1 Score": 0.8997493734335839,
+          "Model Path": "models\\lightgbm.pkl",
+          "training_time_sec": 4.516,
+          "status": "success"
+        },
+        {
+          "Model": "Quadratic Discriminant Analysis",
+          "Accuracy": 0.9,
+          "Precision": 0.9023569023569024,
+          "Recall": 0.9,
+          "F1 Score": 0.8997493734335839,
+          "Model Path": "models\\quadratic_discriminant_analysis.pkl",
+          "training_time_sec": 0.052,
+          "status": "success"
+        }
+      ],
+      "all_results": [
+        {
+          "Model": "Decision Tree",
+          "Accuracy": 0.9333333333333333,
+          "Precision": 0.9333333333333333,
+          "Recall": 0.9333333333333333,
+          "F1 Score": 0.9333333333333333,
+          "Model Path": "models\\decision_tree.pkl",
+          "training_time_sec": 0.363,
+          "status": "success"
+        },
+        {
+          "Model": "Naive Bayes",
+          "Accuracy": 0.9666666666666667,
+          "Precision": 0.9696969696969696,
+          "Recall": 0.9666666666666667,
+          "F1 Score": 0.9665831244778613,
+          "Model Path": "models\\naive_bayes.pkl",
+          "training_time_sec": 0.06,
+          "status": "success"
+        },
+        {
+          "Model": "Random Forest",
+          "Accuracy": 0.9,
+          "Precision": 0.9023569023569024,
+          "Recall": 0.9,
+          "F1 Score": 0.8997493734335839,
+          "Model Path": "models\\random_forest.pkl",
+          "training_time_sec": 1.74,
+          "status": "success"
+        },
+        {
+          "Model": "XGBoost",
+          "Accuracy": 0.9333333333333333,
+          "Precision": 0.9333333333333333,
+          "Recall": 0.9333333333333333,
+          "F1 Score": 0.9333333333333333,
+          "Model Path": "models\\xgboost.pkl",
+          "training_time_sec": 44.309,
+          "status": "success"
+        },
+        {
+          "Model": "CatBoost",
+          "Accuracy": 0.9333333333333333,
+          "Precision": 0.9333333333333333,
+          "Recall": 0.9333333333333333,
+          "F1 Score": 0.9333333333333333,
+          "Model Path": "models\\catboost.pkl",
+          "training_time_sec": 0.796,
+          "status": "success"
+        },
+        {
+          "Model": "AdaBoost",
+          "Accuracy": 0.9333333333333333,
+          "Precision": 0.9333333333333333,
+          "Recall": 0.9333333333333333,
+          "F1 Score": 0.9333333333333333,
+          "Model Path": "models\\adaboost.pkl",
+          "training_time_sec": 1.657,
+          "status": "success"
+        },
+        {
+          "Model": "Gradient Boosting",
+          "Accuracy": 0.9666666666666667,
+          "Precision": 0.9696969696969696,
+          "Recall": 0.9666666666666667,
+          "F1 Score": 0.9665831244778613,
+          "Model Path": "models\\gradient_boosting.pkl",
+          "training_time_sec": 2.046,
+          "status": "success"
+        },
+        {
+          "Model": "HistGradientBoosting",
+          "Accuracy": 0.9,
+          "Precision": 0.9023569023569024,
+          "Recall": 0.9,
+          "F1 Score": 0.8997493734335839,
+          "Model Path": "models\\hist_gradient_boosting.pkl",
+          "training_time_sec": 11.686,
+          "status": "success"
+        },
+        {
+          "Model": "LightGBM",
+          "Accuracy": 0.9,
+          "Precision": 0.9023569023569024,
+          "Recall": 0.9,
+          "F1 Score": 0.8997493734335839,
+          "Model Path": "models\\lightgbm.pkl",
+          "training_time_sec": 4.516,
+          "status": "success"
+        },
+        {
+          "Model": "Logistic Regression",
+          "Accuracy": 0.9666666666666667,
+          "Precision": 0.9696969696969696,
+          "Recall": 0.9666666666666667,
+          "F1 Score": 0.9665831244778613,
+          "Model Path": "models\\logistic_regression.pkl",
+          "training_time_sec": 0.146,
+          "status": "success"
+        },
+        {
+          "Model": "KNN",
+          "Accuracy": 1.0,
+          "Precision": 1.0,
+          "Recall": 1.0,
+          "F1 Score": 1.0,
+          "Model Path": "models\\knn.pkl",
+          "training_time_sec": 0.068,
+          "status": "success"
+        },
+        {
+          "Model": "SVM",
+          "Accuracy": 0.9666666666666667,
+          "Precision": 0.9696969696969696,
+          "Recall": 0.9666666666666667,
+          "F1 Score": 0.9665831244778613,
+          "Model Path": "models\\svm.pkl",
+          "training_time_sec": 0.052,
+          "status": "success"
+        },
+        {
+          "Model": "Linear Discriminant Analysis",
+          "Accuracy": 1.0,
+          "Precision": 1.0,
+          "Recall": 1.0,
+          "F1 Score": 1.0,
+          "Model Path": "models\\linear_discriminant_analysis.pkl",
+          "training_time_sec": 0.056,
+          "status": "success"
+        },
+        {
+          "Model": "Quadratic Discriminant Analysis",
+          "Accuracy": 0.9,
+          "Precision": 0.9023569023569024,
+          "Recall": 0.9,
+          "F1 Score": 0.8997493734335839,
+          "Model Path": "models\\quadratic_discriminant_analysis.pkl",
+          "training_time_sec": 0.052,
+          "status": "success"
+        },
+        {
+          "Model": "Multi Layer Perceptron",
+          "Accuracy": 1.0,
+          "Precision": 1.0,
+          "Recall": 1.0,
+          "F1 Score": 1.0,
+          "Model Path": "models\\mlp_classifier.pkl",
+          "training_time_sec": 0.928,
+          "status": "success"
+        }
+      ]
+    },
+    "approach_2": {
+      "selected_model_b": "KNN",
+      "recommendation_score": 9.0,
+      "reasons": [
+        "Low-dimensional dataset makes distance-based classification worth evaluating",
+        "Low-dimensional data with sufficient samples makes KNN worth evaluating",
+        "Low-dimensional data with sufficient observations makes distance-based learning worth evaluating",
+        "Low-dimensional data with sufficient observations makes KNN a candidate",
+        "Each class has at least 30 rows and feature count is modest; compare KNN after scaling"
+      ],
+      "rules_triggered_count": 5,
+      "message": "Rule-based model recommendation completed.",
+      "trainer_available": true,
+      "is_trained": true,
+      "trained_metrics": {
+        "Model": "KNN",
+        "Accuracy": 1.0,
+        "Precision": 1.0,
+        "Recall": 1.0,
+        "F1 Score": 1.0,
+        "Model Path": "models\\knn.pkl",
+        "training_time_sec": 0.054
+      },
+      "rule_engine_type": "160 Classification Evaluation Heuristics (Rules 1\u2013160)"
+    },
+    "tuning_results": {
+      "Decision Tree": {
+        "Model": "Decision Tree",
+        "Best Parameters": {
+          "min_samples_split": 10,
+          "min_samples_leaf": 2,
+          "max_depth": null,
+          "criterion": "gini"
+        },
+        "CV Score": 0.958,
+        "Accuracy": 0.9667,
+        "Precision": 0.9697,
+        "Recall": 0.9667,
+        "F1 Score": 0.9666,
+        "Model Path": "models\\tuned_approach_1_decision_tree.pkl",
+        "tuning_time_sec": 9.39,
+        "stage": "approach_1",
+        "search_method": "RandomizedSearchCV (n_iter=20, scoring='f1_weighted')",
+        "baseline_metrics": {
+          "Accuracy": 0.9333,
+          "Precision": 0.9333,
+          "Recall": 0.9333,
+          "F1 Score": 0.9333
+        }
+      }
+    },
+    "cross_validation": {
+      "model_path": "models\\knn.pkl",
+      "model_name": "KNN",
+      "fold_scores": [
+        1.0,
+        0.9667,
+        0.9333,
+        1.0,
+        0.9333
+      ],
+      "mean_accuracy": 0.9667,
+      "std_accuracy": 0.0298,
+      "n_splits": 5
+    },
+    "shap_available": false
+  },
+  {
+    "analysis_id": "c461410e-3",
+    "completed_at": "2026-11-03T21:11:21.094618",
+    "dataset_name": "iris.csv",
+    "rows": 150,
+    "columns": 5,
+    "feature_count": 4,
+    "target_column": "variety",
+    "task_type": "classification",
+    "mode": "approach_2",
+    "selection_metric": "Accuracy",
+    "approach_1": null,
+    "approach_2": {
+      "selected_model_b": "KNN",
+      "recommendation_score": 9.0,
+      "reasons": [
+        "Low-dimensional dataset makes distance-based classification worth evaluating",
+        "Low-dimensional data with sufficient samples makes KNN worth evaluating",
+        "Low-dimensional data with sufficient observations makes distance-based learning worth evaluating",
+        "Low-dimensional data with sufficient observations makes KNN a candidate",
+        "Each class has at least 30 rows and feature count is modest; compare KNN after scaling"
+      ],
+      "rules_triggered_count": 5,
+      "message": "Rule-based model recommendation completed.",
+      "trainer_available": true,
+      "is_trained": false,
+      "trained_metrics": null,
+      "rule_engine_type": "160 Classification Evaluation Heuristics (Rules 1\u2013160)"
+    },
+    "tuning_results": {},
+    "cross_validation": null,
+    "shap_available": false
+  },
+  {
+    "analysis_id": "195a8167-a",
+    "completed_at": "2026-11-03T21:09:53.943798",
+    "dataset_name": "iris.csv",
+    "rows": 150,
+    "columns": 5,
+    "feature_count": 4,
+    "target_column": "variety",
+    "task_type": "classification",
+    "mode": "both",
+    "selection_metric": "Accuracy",
+    "approach_1": {
+      "selected_model_a": {
+        "Model": "KNN",
+        "Accuracy": 1.0,
+        "Precision": 1.0,
+        "Recall": 1.0,
+        "F1 Score": 1.0,
+        "Model Path": "models\\knn.pkl",
+        "training_time_sec": 0.053,
+        "status": "success"
+      },
+      "selection_metric": "Accuracy",
+      "candidate_count": 15,
+      "candidate_models": [
+        {
+          "Model": "KNN",
+          "Accuracy": 1.0,
+          "Precision": 1.0,
+          "Recall": 1.0,
+          "F1 Score": 1.0,
+          "Model Path": "models\\knn.pkl",
+          "training_time_sec": 0.053,
+          "status": "success"
+        },
+        {
+          "Model": "Linear Discriminant Analysis",
+          "Accuracy": 1.0,
+          "Precision": 1.0,
+          "Recall": 1.0,
+          "F1 Score": 1.0,
+          "Model Path": "models\\linear_discriminant_analysis.pkl",
+          "training_time_sec": 0.08,
+          "status": "success"
+        },
+        {
+          "Model": "Multi Layer Perceptron",
+          "Accuracy": 1.0,
+          "Precision": 1.0,
+          "Recall": 1.0,
+          "F1 Score": 1.0,
+          "Model Path": "models\\mlp_classifier.pkl",
+          "training_time_sec": 1.053,
+          "status": "success"
+        },
+        {
+          "Model": "Naive Bayes",
+          "Accuracy": 0.9666666666666667,
+          "Precision": 0.9696969696969696,
+          "Recall": 0.9666666666666667,
+          "F1 Score": 0.9665831244778613,
+          "Model Path": "models\\naive_bayes.pkl",
+          "training_time_sec": 0.03,
+          "status": "success"
+        },
+        {
+          "Model": "Gradient Boosting",
+          "Accuracy": 0.9666666666666667,
+          "Precision": 0.9696969696969696,
+          "Recall": 0.9666666666666667,
+          "F1 Score": 0.9665831244778613,
+          "Model Path": "models\\gradient_boosting.pkl",
+          "training_time_sec": 1.002,
+          "status": "success"
+        },
+        {
+          "Model": "Logistic Regression",
+          "Accuracy": 0.9666666666666667,
+          "Precision": 0.9696969696969696,
+          "Recall": 0.9666666666666667,
+          "F1 Score": 0.9665831244778613,
+          "Model Path": "models\\logistic_regression.pkl",
+          "training_time_sec": 0.105,
+          "status": "success"
+        },
+        {
+          "Model": "SVM",
+          "Accuracy": 0.9666666666666667,
+          "Precision": 0.9696969696969696,
+          "Recall": 0.9666666666666667,
+          "F1 Score": 0.9665831244778613,
+          "Model Path": "models\\svm.pkl",
+          "training_time_sec": 0.058,
+          "status": "success"
+        },
+        {
+          "Model": "Decision Tree",
+          "Accuracy": 0.9333333333333333,
+          "Precision": 0.9333333333333333,
+          "Recall": 0.9333333333333333,
+          "F1 Score": 0.9333333333333333,
+          "Model Path": "models\\decision_tree.pkl",
+          "training_time_sec": 0.306,
+          "status": "success"
+        },
+        {
+          "Model": "XGBoost",
+          "Accuracy": 0.9333333333333333,
+          "Precision": 0.9333333333333333,
+          "Recall": 0.9333333333333333,
+          "F1 Score": 0.9333333333333333,
+          "Model Path": "models\\xgboost.pkl",
+          "training_time_sec": 2.246,
+          "status": "success"
+        },
+        {
+          "Model": "CatBoost",
+          "Accuracy": 0.9333333333333333,
+          "Precision": 0.9333333333333333,
+          "Recall": 0.9333333333333333,
+          "F1 Score": 0.9333333333333333,
+          "Model Path": "models\\catboost.pkl",
+          "training_time_sec": 0.635,
+          "status": "success"
+        },
+        {
+          "Model": "AdaBoost",
+          "Accuracy": 0.9333333333333333,
+          "Precision": 0.9333333333333333,
+          "Recall": 0.9333333333333333,
+          "F1 Score": 0.9333333333333333,
+          "Model Path": "models\\adaboost.pkl",
+          "training_time_sec": 0.748,
+          "status": "success"
+        },
+        {
+          "Model": "Random Forest",
+          "Accuracy": 0.9,
+          "Precision": 0.9023569023569024,
+          "Recall": 0.9,
+          "F1 Score": 0.8997493734335839,
+          "Model Path": "models\\random_forest.pkl",
+          "training_time_sec": 0.849,
+          "status": "success"
+        },
+        {
+          "Model": "HistGradientBoosting",
+          "Accuracy": 0.9,
+          "Precision": 0.9023569023569024,
+          "Recall": 0.9,
+          "F1 Score": 0.8997493734335839,
+          "Model Path": "models\\hist_gradient_boosting.pkl",
+          "training_time_sec": 19.054,
+          "status": "success"
+        },
+        {
+          "Model": "LightGBM",
+          "Accuracy": 0.9,
+          "Precision": 0.9023569023569024,
+          "Recall": 0.9,
+          "F1 Score": 0.8997493734335839,
+          "Model Path": "models\\lightgbm.pkl",
+          "training_time_sec": 0.611,
+          "status": "success"
+        },
+        {
+          "Model": "Quadratic Discriminant Analysis",
+          "Accuracy": 0.9,
+          "Precision": 0.9023569023569024,
+          "Recall": 0.9,
+          "F1 Score": 0.8997493734335839,
+          "Model Path": "models\\quadratic_discriminant_analysis.pkl",
+          "training_time_sec": 0.074,
+          "status": "success"
+        }
+      ],
+      "all_results": [
+        {
+          "Model": "Decision Tree",
+          "Accuracy": 0.9333333333333333,
+          "Precision": 0.9333333333333333,
+          "Recall": 0.9333333333333333,
+          "F1 Score": 0.9333333333333333,
+          "Model Path": "models\\decision_tree.pkl",
+          "training_time_sec": 0.306,
+          "status": "success"
+        },
+        {
+          "Model": "Naive Bayes",
+          "Accuracy": 0.9666666666666667,
+          "Precision": 0.9696969696969696,
+          "Recall": 0.9666666666666667,
+          "F1 Score": 0.9665831244778613,
+          "Model Path": "models\\naive_bayes.pkl",
+          "training_time_sec": 0.03,
+          "status": "success"
+        },
+        {
+          "Model": "Random Forest",
+          "Accuracy": 0.9,
+          "Precision": 0.9023569023569024,
+          "Recall": 0.9,
+          "F1 Score": 0.8997493734335839,
+          "Model Path": "models\\random_forest.pkl",
+          "training_time_sec": 0.849,
+          "status": "success"
+        },
+        {
+          "Model": "XGBoost",
+          "Accuracy": 0.9333333333333333,
+          "Precision": 0.9333333333333333,
+          "Recall": 0.9333333333333333,
+          "F1 Score": 0.9333333333333333,
+          "Model Path": "models\\xgboost.pkl",
+          "training_time_sec": 2.246,
+          "status": "success"
+        },
+        {
+          "Model": "CatBoost",
+          "Accuracy": 0.9333333333333333,
+          "Precision": 0.9333333333333333,
+          "Recall": 0.9333333333333333,
+          "F1 Score": 0.9333333333333333,
+          "Model Path": "models\\catboost.pkl",
+          "training_time_sec": 0.635,
+          "status": "success"
+        },
+        {
+          "Model": "AdaBoost",
+          "Accuracy": 0.9333333333333333,
+          "Precision": 0.9333333333333333,
+          "Recall": 0.9333333333333333,
+          "F1 Score": 0.9333333333333333,
+          "Model Path": "models\\adaboost.pkl",
+          "training_time_sec": 0.748,
+          "status": "success"
+        },
+        {
+          "Model": "Gradient Boosting",
+          "Accuracy": 0.9666666666666667,
+          "Precision": 0.9696969696969696,
+          "Recall": 0.9666666666666667,
+          "F1 Score": 0.9665831244778613,
+          "Model Path": "models\\gradient_boosting.pkl",
+          "training_time_sec": 1.002,
+          "status": "success"
+        },
+        {
+          "Model": "HistGradientBoosting",
+          "Accuracy": 0.9,
+          "Precision": 0.9023569023569024,
+          "Recall": 0.9,
+          "F1 Score": 0.8997493734335839,
+          "Model Path": "models\\hist_gradient_boosting.pkl",
+          "training_time_sec": 19.054,
+          "status": "success"
+        },
+        {
+          "Model": "LightGBM",
+          "Accuracy": 0.9,
+          "Precision": 0.9023569023569024,
+          "Recall": 0.9,
+          "F1 Score": 0.8997493734335839,
+          "Model Path": "models\\lightgbm.pkl",
+          "training_time_sec": 0.611,
+          "status": "success"
+        },
+        {
+          "Model": "Logistic Regression",
+          "Accuracy": 0.9666666666666667,
+          "Precision": 0.9696969696969696,
+          "Recall": 0.9666666666666667,
+          "F1 Score": 0.9665831244778613,
+          "Model Path": "models\\logistic_regression.pkl",
+          "training_time_sec": 0.105,
+          "status": "success"
+        },
+        {
+          "Model": "KNN",
+          "Accuracy": 1.0,
+          "Precision": 1.0,
+          "Recall": 1.0,
+          "F1 Score": 1.0,
+          "Model Path": "models\\knn.pkl",
+          "training_time_sec": 0.053,
+          "status": "success"
+        },
+        {
+          "Model": "SVM",
+          "Accuracy": 0.9666666666666667,
+          "Precision": 0.9696969696969696,
+          "Recall": 0.9666666666666667,
+          "F1 Score": 0.9665831244778613,
+          "Model Path": "models\\svm.pkl",
+          "training_time_sec": 0.058,
+          "status": "success"
+        },
+        {
+          "Model": "Linear Discriminant Analysis",
+          "Accuracy": 1.0,
+          "Precision": 1.0,
+          "Recall": 1.0,
+          "F1 Score": 1.0,
+          "Model Path": "models\\linear_discriminant_analysis.pkl",
+          "training_time_sec": 0.08,
+          "status": "success"
+        },
+        {
+          "Model": "Quadratic Discriminant Analysis",
+          "Accuracy": 0.9,
+          "Precision": 0.9023569023569024,
+          "Recall": 0.9,
+          "F1 Score": 0.8997493734335839,
+          "Model Path": "models\\quadratic_discriminant_analysis.pkl",
+          "training_time_sec": 0.074,
+          "status": "success"
+        },
+        {
+          "Model": "Multi Layer Perceptron",
+          "Accuracy": 1.0,
+          "Precision": 1.0,
+          "Recall": 1.0,
+          "F1 Score": 1.0,
+          "Model Path": "models\\mlp_classifier.pkl",
+          "training_time_sec": 1.053,
+          "status": "success"
+        }
+      ]
+    },
+    "approach_2": {
+      "selected_model_b": "KNN",
+      "recommendation_score": 9.0,
+      "reasons": [
+        "Low-dimensional dataset makes distance-based classification worth evaluating",
+        "Low-dimensional data with sufficient samples makes KNN worth evaluating",
+        "Low-dimensional data with sufficient observations makes distance-based learning worth evaluating",
+        "Low-dimensional data with sufficient observations makes KNN a candidate",
+        "Each class has at least 30 rows and feature count is modest; compare KNN after scaling"
+      ],
+      "rules_triggered_count": 5,
+      "message": "Rule-based model recommendation completed.",
+      "trainer_available": true,
+      "is_trained": true,
+      "trained_metrics": {
+        "Model": "KNN",
+        "Accuracy": 1.0,
+        "Precision": 1.0,
+        "Recall": 1.0,
+        "F1 Score": 1.0,
+        "Model Path": "models\\knn.pkl",
+        "training_time_sec": 0.058
+      },
+      "rule_engine_type": "160 Classification Evaluation Heuristics (Rules 1\u2013160)"
+    },
+    "tuning_results": {},
+    "cross_validation": {
+      "model_path": "models\\knn.pkl",
+      "model_name": "KNN",
+      "fold_scores": [
+        1.0,
+        0.9667,
+        0.9333,
+        1.0,
+        0.9333
+      ],
+      "mean_accuracy": 0.9667,
+      "std_accuracy": 0.0298,
+      "n_splits": 5
+    },
+    "shap_available": false
+  },
+  {
+    "analysis_id": "583382ec-d",
+    "completed_at": "2026-11-03T21:09:26.532051",
+    "dataset_name": "iris.csv",
+    "rows": 150,
+    "columns": 5,
+    "feature_count": 4,
+    "target_column": "variety",
+    "task_type": "classification",
+    "mode": "approach_2",
+    "selection_metric": "Accuracy",
+    "approach_1": null,
+    "approach_2": {
+      "selected_model_b": "KNN",
+      "recommendation_score": 9.0,
+      "reasons": [
+        "Low-dimensional dataset makes distance-based classification worth evaluating",
+        "Low-dimensional data with sufficient samples makes KNN worth evaluating",
+        "Low-dimensional data with sufficient observations makes distance-based learning worth evaluating",
+        "Low-dimensional data with sufficient observations makes KNN a candidate",
+        "Each class has at least 30 rows and feature count is modest; compare KNN after scaling"
+      ],
+      "rules_triggered_count": 5,
+      "message": "Rule-based model recommendation completed.",
+      "trainer_available": true,
+      "is_trained": false,
+      "trained_metrics": null,
+      "rule_engine_type": "160 Classification Evaluation Heuristics (Rules 1\u2013160)"
+    },
+    "tuning_results": {},
+    "cross_validation": null,
+    "shap_available": false
+  }
+]

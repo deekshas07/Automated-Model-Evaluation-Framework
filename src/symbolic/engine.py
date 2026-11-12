@@ -221,7 +221,8 @@ class SymbolicEngine:
         dtype = str(column.dtype)
 
         # Type detection
-        is_numeric = pd.api.types.is_numeric_dtype(column)
+        is_boolean = pd.api.types.is_bool_dtype(column)
+        is_numeric = pd.api.types.is_numeric_dtype(column) and not is_boolean
         is_categorical = isinstance(column.dtype, pd.CategoricalDtype) or \
                         (pd.api.types.is_object_dtype(column) and unique_ratio < 0.5)
         is_text = pd.api.types.is_string_dtype(column) or pd.api.types.is_object_dtype(column)
@@ -236,6 +237,7 @@ class SymbolicEngine:
             is_numeric=is_numeric,
             is_categorical=is_categorical,
             is_text=is_text,
+            is_boolean=is_boolean,
             cardinality=unique_count,
             target_available=target_available,
             column_name=column_name
@@ -243,51 +245,55 @@ class SymbolicEngine:
 
         # Numeric statistics
         if is_numeric and null_pct < 1.0:
-            non_null = column.dropna()
-            stats.min_value = float(non_null.min())
-            stats.max_value = float(non_null.max())
-            stats.mean = float(non_null.mean())
-            stats.median = float(non_null.median())
-            stats.std = float(non_null.std())
-            stats.skewness = float(non_null.skew()) if len(non_null) > 2 else 0
-            stats.kurtosis = float(non_null.kurtosis()) if len(non_null) > 3 else 0
-            stats.all_positive = stats.min_value > 0
-            stats.has_zeros = (non_null == 0).any()
+            non_null = column.replace([np.inf, -np.inf], np.nan).dropna()
+            if len(non_null) > 0:
+                stats.min_value = float(non_null.min())
+                stats.max_value = float(non_null.max())
+                stats.mean = float(non_null.mean())
+                stats.median = float(non_null.median())
+                raw_std = non_null.std() if len(non_null) > 1 else 0.0
+                stats.std = 0.0 if pd.isna(raw_std) else float(raw_std)
+                raw_skew = non_null.skew() if len(non_null) > 2 else 0.0
+                stats.skewness = 0.0 if pd.isna(raw_skew) else float(raw_skew)
+                raw_kurt = non_null.kurtosis() if len(non_null) > 3 else 0.0
+                stats.kurtosis = 0.0 if pd.isna(raw_kurt) else float(raw_kurt)
+                stats.all_positive = stats.min_value > 0
+                stats.has_zeros = bool((non_null == 0).any())
 
-            # NEW: Additional statistical metrics
-            stats.range_size = stats.max_value - stats.min_value
+                # NEW: Additional statistical metrics
+                stats.range_size = stats.max_value - stats.min_value
 
-            # Coefficient of variation (CV = std / mean) - measures relative variability
-            if stats.mean != 0:
-                stats.cv = abs(stats.std / stats.mean)
-            else:
-                stats.cv = 0.0
+                # Coefficient of variation (CV = std / mean) - measures relative variability
+                if stats.mean != 0:
+                    stats.cv = abs(stats.std / stats.mean)
+                else:
+                    stats.cv = 0.0
 
-            # Outlier detection using IQR
-            q1 = non_null.quantile(0.25)
-            q3 = non_null.quantile(0.75)
-            iqr = q3 - q1
-            stats.iqr = float(iqr)
-            lower_bound = q1 - 1.5 * iqr
-            upper_bound = q3 + 1.5 * iqr
-            outliers = (non_null < lower_bound) | (non_null > upper_bound)
-            stats.has_outliers = outliers.any()
-            stats.outlier_pct = outliers.sum() / len(non_null) if len(non_null) > 0 else 0
+                # Outlier detection using IQR
+                q1 = non_null.quantile(0.25)
+                q3 = non_null.quantile(0.75)
+                iqr = q3 - q1
+                stats.iqr = float(iqr)
+                lower_bound = q1 - 1.5 * iqr
+                upper_bound = q3 + 1.5 * iqr
+                outliers = (non_null < lower_bound) | (non_null > upper_bound)
+                stats.has_outliers = bool(outliers.any())
+                stats.outlier_pct = float(outliers.sum() / len(non_null)) if len(non_null) > 0 else 0.0
 
-            # Check if already scaled
-            stats.is_already_scaled = (
-                abs(stats.mean) < 0.1 and
-                0.8 < stats.std < 1.2
-            )
+                # Check if already scaled
+                stats.is_already_scaled = (
+                    abs(stats.mean) < 0.1 and
+                    0.8 < stats.std < 1.2
+                )
 
-            # Check for natural bounds
-            stats.has_natural_bounds = (
-                (stats.min_value >= 0 and stats.max_value <= 1) or
-                (stats.min_value >= 0 and stats.max_value <= 100)
-            )
+                # Check for natural bounds
+                stats.has_natural_bounds = (
+                    (stats.min_value >= 0 and stats.max_value <= 1) or
+                    (stats.min_value >= 0 and stats.max_value <= 100)
+                )
 
-            # Check for bimodality (simple heuristic)
-            stats.is_bimodal = stats.kurtosis < -1
+                # Check for bimodality (simple heuristic)
+                stats.is_bimodal = stats.kurtosis < -1
         # Pattern matching for non-numeric columns
         if is_text and null_pct < 1.0:
             sample = column.dropna().head(min(1000, len(column)))

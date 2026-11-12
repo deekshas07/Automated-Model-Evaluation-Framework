@@ -292,15 +292,20 @@ class NeuralOracle:
                     model_path = hybrid_models[0]
                     logger.info(f"Found hybrid model: {model_path.name}")
                 else:
-                    # Priority 2: Any .pkl file (newest first by modification time)
-                    all_pkl_files = sorted(
-                        models_dir.glob("*.pkl"),
+                    # Priority 2: Dedicated neural/preprocessing oracle .pkl files only
+                    # (Exclude user-dataset trained models like xgboost.pkl, tuned_*.pkl, etc.)
+                    oracle_pkl_files = sorted(
+                        [
+                            p
+                            for p in models_dir.glob("*oracle*.pkl")
+                            if not p.name.startswith("tuned_")
+                        ],
                         key=lambda p: p.stat().st_mtime,
                         reverse=True,
                     )
-                    if all_pkl_files:
-                        model_path = all_pkl_files[0]
-                        logger.info(f"Found model: {model_path.name}")
+                    if oracle_pkl_files:
+                        model_path = oracle_pkl_files[0]
+                        logger.info(f"Found oracle model: {model_path.name}")
 
         if model_path is not None and Path(model_path).exists():
             try:
@@ -379,9 +384,20 @@ class NeuralOracle:
         is_sklearn = hasattr(self.model, "predict_proba")
 
         if is_sklearn:
+            # Validate that the model expects the 20 column meta-features from MinimalFeatures
+            if hasattr(self.model, "n_features_in_") and self.model.n_features_in_ != X.shape[1]:
+                logger.warning(
+                    f"NeuralOracle model expects {self.model.n_features_in_} features, "
+                    f"but received {X.shape[1]}. Returning None for symbolic fallback."
+                )
+                return None
+
             # Sklearn model (VotingClassifier, etc.)
-            # Get feature names from model if available to avoid warnings
-            if hasattr(self.model, "feature_names_in_"):
+            # Get feature names from model only if count matches X.shape[1]
+            if (
+                hasattr(self.model, "feature_names_in_")
+                and len(self.model.feature_names_in_) == X.shape[1]
+            ):
                 feature_names = list(self.model.feature_names_in_)
             else:
                 # Fallback to generic column names matching model training
@@ -397,18 +413,19 @@ class NeuralOracle:
 
         # Get top prediction
         top_idx = int(np.argmax(probs))
-        top_action = self.action_encoder[top_idx]
+        top_action = self.action_encoder.get(top_idx, PreprocessingAction.KEEP_AS_IS)
 
-        # Ensure action is an Enum (handle string actions from loaded models)
-        if isinstance(top_action, str):
+        # Ensure action is an Enum (handle string or non-enum actions from loaded models)
+        if not isinstance(top_action, PreprocessingAction):
+            top_action_str = str(top_action)
             # Try direct mapping using consolidated ACTION_MAPPING
-            if top_action in self.ACTION_MAPPING:
-                top_action = self.ACTION_MAPPING[top_action]
+            if top_action_str in self.ACTION_MAPPING:
+                top_action = self.ACTION_MAPPING[top_action_str]
             else:
                 # 2. Try exact value match
                 found = False
                 for action_enum in PreprocessingAction:
-                    if action_enum.value == top_action:
+                    if action_enum.value == top_action_str:
                         top_action = action_enum
                         found = True
                         break
@@ -799,13 +816,37 @@ class NeuralOracle:
                 logger.info("Legacy model loaded successfully")
         else:
             # Ensemble format: direct VotingClassifier or sklearn model
-            logger.info("Loaded ensemble model format")
-            self.model = loaded
-            # Build action encoder/decoder from model's classes
+            # Validate that this is an actual preprocessing oracle model (20 or 40 meta-features,
+            # and classes that map to PreprocessingAction), NOT a user dataset classifier.
+            if hasattr(loaded, "n_features_in_") and loaded.n_features_in_ not in (
+                self.MINIMAL_FEATURE_COUNT,
+                self.META_FEATURE_COUNT,
+            ):
+                raise ValueError(
+                    f"Model has {loaded.n_features_in_} input features; expected "
+                    f"{self.MINIMAL_FEATURE_COUNT} or {self.META_FEATURE_COUNT} for NeuralOracle."
+                )
+
+            valid_action_values = {a.value for a in PreprocessingAction} | set(
+                self.ACTION_MAPPING.keys()
+            )
             if hasattr(loaded, "classes_"):
-                classes = loaded.classes_
+                classes = list(loaded.classes_)
+                has_valid_action = any(
+                    isinstance(c, PreprocessingAction) or str(c) in valid_action_values
+                    for c in classes
+                )
+                if not has_valid_action:
+                    raise ValueError(
+                        f"Model classes {classes[:5]} do not match PreprocessingAction labels."
+                    )
                 self.action_encoder = {i: cls for i, cls in enumerate(classes)}
                 self.action_decoder = {cls: i for i, cls in enumerate(classes)}
+            else:
+                classes = []
+
+            logger.info("Loaded ensemble model format")
+            self.model = loaded
             self.is_hybrid = False
             logger.info(
                 f"Ensemble model loaded successfully with {len(classes)} classes"
@@ -975,15 +1016,19 @@ def get_neural_oracle(model_path: Optional[Path] = None) -> NeuralOracle:
                     model_path = hybrid_models[0]
                     logger.info(f"Found hybrid model: {model_path.name}")
                 else:
-                    # Priority 2: Any .pkl file (newest first by modification time)
-                    all_pkl_files = sorted(
-                        models_dir.glob("*.pkl"),
+                    # Priority 2: Dedicated neural/preprocessing oracle .pkl files only
+                    oracle_pkl_files = sorted(
+                        [
+                            p
+                            for p in models_dir.glob("*oracle*.pkl")
+                            if not p.name.startswith("tuned_")
+                        ],
                         key=lambda p: p.stat().st_mtime,
                         reverse=True,
                     )
-                    if all_pkl_files:
-                        model_path = all_pkl_files[0]
-                        logger.info(f"Found model: {model_path.name}")
+                    if oracle_pkl_files:
+                        model_path = oracle_pkl_files[0]
+                        logger.info(f"Found oracle model: {model_path.name}")
 
         _oracle_instance = NeuralOracle(model_path)
     return _oracle_instance

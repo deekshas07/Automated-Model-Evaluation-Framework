@@ -1,3 +1,4 @@
+
 """
 run.py
 
@@ -7,10 +8,12 @@ Complete AURORA Pipeline
 2. Analyze dataset
 3. Save preprocessing report
 4. Save preprocessed dataset
-5. Train all ML models
-6. Compare results
-7. Display best model
+5. Approach 1 - Train all 15 models and select Model A
+6. Approach 2 - Rule-based selection, train and evaluate Model B
+7. Compare Model A and Model B
+8. Cross-validation and SHAP on final selected model
 """
+
 import joblib
 
 from src.evaluation.cross_validation import perform_cross_validation
@@ -21,6 +24,10 @@ from collections import Counter
 import pandas as pd
 
 from src.core.preprocessor import get_preprocessor
+
+from src.model_selection.rule_based_selector import select_model_using_rules
+
+from src.model_selection.hyperparameter_tuner import tune_selected_model
 
 # ==========================
 # Import All Models
@@ -46,12 +53,13 @@ from src.training.train_quadratic_discriminant_analysis import (
 )
 from src.training.train_mlp import train_mlp
 
+
 PREPROCESSED_FOLDER = "preprocessed"
 REPORT_FOLDER = "reports"
 
 os.makedirs(PREPROCESSED_FOLDER, exist_ok=True)
 os.makedirs(REPORT_FOLDER, exist_ok=True)
-
+os.makedirs("models", exist_ok=True)
 
 def preprocess_dataset(dataset_path):
     """
@@ -161,11 +169,19 @@ def main():
         print("\nDataset not found.")
         return
 
+    # =====================================================
+    # STEP 1 - PREPROCESSING
+    # =====================================================
+
     processed_dataset = preprocess_dataset(dataset_path)
+
+    # =====================================================
+    # APPROACH 1 - PERFORMANCE-BASED MODEL SELECTION
+    # =====================================================
 
     print("\n")
     print("=" * 70)
-    print("TRAINING MODELS")
+    print("APPROACH 1 - PERFORMANCE-BASED MODEL SELECTION")
     print("=" * 70)
 
     results = []
@@ -187,6 +203,7 @@ def main():
 
     print("Training AdaBoost...")
     results.append(train_adaboost(processed_dataset))
+
     print("Training Gradient Boosting...")
     results.append(train_gradient_boosting(processed_dataset))
 
@@ -215,12 +232,12 @@ def main():
     results.append(train_mlp(processed_dataset))
 
     # =====================================================
-    # MODEL COMPARISON
+    # MODEL COMPARISON - APPROACH 1
     # =====================================================
 
     print("\n")
     print("=" * 70)
-    print("MODEL COMPARISON")
+    print("APPROACH 1 - MODEL COMPARISON")
     print("=" * 70)
 
     print(
@@ -234,9 +251,7 @@ def main():
     for result in results:
         print_result(result)
 
-    # =====================================================
-    # BEST MODEL
-    # =====================================================
+    # Select Model A
 
     best = max(
         results,
@@ -245,34 +260,222 @@ def main():
 
     print("\n")
     print("=" * 70)
-    print("BEST MODEL")
+    print("APPROACH 1 - SELECTED MODEL A")
     print("=" * 70)
 
-    print(f"Model      : {best['Model']}")
-    print(f"Accuracy   : {best['Accuracy']:.4f}")
-    print(f"Precision  : {best['Precision']:.4f}")
-    print(f"Recall     : {best['Recall']:.4f}")
-    print(f"F1 Score   : {best['F1 Score']:.4f}")
-    print(f"Saved At   : {best['Model Path']}")
-    # =====================================================
-# CROSS VALIDATION
-# =====================================================
+    print(f"Model     : {best['Model']}")
+    print(f"Accuracy  : {best['Accuracy']:.4f}")
+    print(f"Precision : {best['Precision']:.4f}")
+    print(f"Recall    : {best['Recall']:.4f}")
+    print(f"F1 Score  : {best['F1 Score']:.4f}")
+    # Tune the best model from Approach 1 using RandomizedSearchCV
 
     print("\n")
     print("=" * 70)
-    print("CROSS VALIDATION")
+    print("APPROACH 1 - HYPERPARAMETER TUNING")
     print("=" * 70)
 
-    best_model = joblib.load(best["Model Path"])
+    tuned_model_A = tune_selected_model(
+        model_name=best["Model"],
+        data_path=processed_dataset,
+        stage="approach_1"
+    )
+
+    print("\nAPPROACH 1 TUNED RESULTS")
+    print("Model:", tuned_model_A["Model"])
+    print("Best Parameters:", tuned_model_A["Best Parameters"])
+    print("Accuracy:", tuned_model_A["Accuracy"])
+    print("F1 Score:", tuned_model_A["F1 Score"])
+    print("Model Path:", tuned_model_A["Model Path"])
+
+        
+    # =====================================================
+    # STEP 3 - APPROACH 2 - RULE-BASED MODEL SELECTION
+    # =====================================================
+
+    print("\n")
+    print("=" * 70)
+    print("APPROACH 2 - RULE-BASED MODEL SELECTION")
+    print("=" * 70)
+
+    rule_df = pd.read_csv(processed_dataset)
+
+    rule_df = rule_df.dropna(how="all")
+    rule_df = rule_df.dropna(subset=[rule_df.columns[-1]])
+
+    X = rule_df.iloc[:, :-1]
+    y = rule_df.iloc[:, -1]
+
+    model_b_result = select_model_using_rules(
+        X,
+        y,
+        task_type="classification"
+    )
+
+    model_b = model_b_result["selected_model"]
+
+    model_b_training_result = None
+
+    if model_b is not None:
+
+        print(f"\nSelected Model B: {model_b}")
+
+        print("\nReasons:")
+        for reason in model_b_result["reasons"]:
+            print(f"- {reason}")
+
+        # =================================================
+        # TRAIN THE SELECTED MODEL B
+        # =================================================
+
+        print("\n")
+        print("=" * 70)
+        print("TRAINING APPROACH 2 SELECTED MODEL")
+        print("=" * 70)
+
+        model_trainers = {
+            "Decision Tree": train_decision_tree,
+            "Random Forest": train_random_forest,
+            "Naive Bayes": train_naive_bayes,
+            "Logistic Regression": train_logistic_regression,
+            "KNN": train_knn,
+            "SVM": train_svm,
+            "LDA": train_linear_discriminant_analysis,
+            "Linear Discriminant Analysis": train_linear_discriminant_analysis,
+            "QDA": train_quadratic_discriminant_analysis,
+            "Quadratic Discriminant Analysis": train_quadratic_discriminant_analysis,
+            "AdaBoost": train_adaboost,
+            "Gradient Boosting": train_gradient_boosting,
+            "HistGradientBoosting": train_hist_gradient_boosting,
+            "Hist Gradient Boosting": train_hist_gradient_boosting,
+            "XGBoost": train_xgboost,
+            "CatBoost": train_catboost,
+            "LightGBM": train_lightgbm,
+            "MLP": train_mlp,
+            "Multi Layer Perceptron": train_mlp
+        }
+
+        selected_trainer = model_trainers.get(model_b)
+
+        if selected_trainer is None:
+            raise ValueError(
+                f"No training function mapped for recommended model: {model_b}"
+            )
+
+        print(f"\nTraining recommended model: {model_b}")
+
+        model_b_training_result = selected_trainer(processed_dataset)
+        print(f"\nTraining recommended model: {model_b}")
+
+        model_b_training_result = selected_trainer(processed_dataset)
+
+        # Display original Model B training results
+        print("\nMODEL B TRAINING RESULTS")
+        print_result(model_b_training_result)
+        # Tune Model B using RandomizedSearchCV
+
+        print("\n")
+        print("=" * 70)
+        print("APPROACH 2 - HYPERPARAMETER TUNING")
+        print("=" * 70)
+
+        tuned_model_B = tune_selected_model(
+            model_name=model_b_training_result["Model"],
+            data_path=processed_dataset,
+            stage="approach_2"
+        )
+
+        print("\nAPPROACH 2 TUNED RESULTS")
+        print("Model:", tuned_model_B["Model"])
+        print("Best Parameters:", tuned_model_B["Best Parameters"])
+        print("Accuracy:", tuned_model_B["Accuracy"])
+        print("F1 Score:", tuned_model_B["F1 Score"])
+        print("Model Path:", tuned_model_B["Model Path"])
+
+        # Tune Model B using RandomizedSearchCV
+        print("\n")
+        print("=" * 70)
+        print("APPROACH 2 - HYPERPARAMETER TUNING")
+        print("=" * 70)
+
+        tuned_model_B = tune_selected_model(
+            model_name=model_b_training_result["Model"],
+            data_path=processed_dataset
+        )
+
+        print("\nApproach 2 Tuned Results:")
+        print("Model:", tuned_model_B["Model"])
+        print("Best Parameters:", tuned_model_B["Best Parameters"])
+        print("Accuracy:", tuned_model_B["Accuracy"])
+        print("F1 Score:", tuned_model_B["F1 Score"])
+        print("Model Path:", tuned_model_B["Model Path"])
+    else:
+        print("\nNo model was recommended by the evaluation rules.")
+        
+    # =====================================================
+    # STEP 4 - FINAL COMPARISON
+    # =====================================================
+
+    print("\n")
+    print("=" * 70)
+    print("FINAL MODEL COMPARISON - MODEL A vs MODEL B")
+    print("=" * 70)
+
+    print("\nMODEL A - PERFORMANCE-BASED")
+    print_result(best)
+
+    if model_b_training_result is not None:
+
+        print("\nMODEL B - RULE-BASED AND TRAINED")
+        print_result(model_b_training_result)
+
+        final_best = max(
+            [best, model_b_training_result],
+            key=lambda x: x["Accuracy"]
+        )
+
+        print("\n")
+        print("=" * 70)
+        print("FINAL SELECTED MODEL")
+        print("=" * 70)
+
+        if final_best is best:
+            print("Selected through Approach 1.")
+        else:
+            print("Selected through Approach 2.")
+
+    else:
+        final_best = best
+
+        print("\nApproach 2 did not produce a trained model.")
+        print("Selecting Model A as the final model.")
+
+    print(f"\nFinal Model     : {final_best['Model']}")
+    print(f"Accuracy        : {final_best['Accuracy']:.4f}")
+    print(f"Precision       : {final_best['Precision']:.4f}")
+    print(f"Recall          : {final_best['Recall']:.4f}")
+    print(f"F1 Score        : {final_best['F1 Score']:.4f}")
+    print(f"Saved At        : {final_best['Model Path']}")
+
+    # =====================================================
+    # STEP 5 - CROSS VALIDATION
+    # =====================================================
+
+    print("\n")
+    print("=" * 70)
+    print("CROSS VALIDATION - FINAL SELECTED MODEL")
+    print("=" * 70)
+
+    final_model = joblib.load(final_best["Model Path"])
 
     perform_cross_validation(
-        best_model,
+        final_model,
         processed_dataset
     )
 
-# =====================================================
-# EXPLAINABLE AI (SHAP)
-# =====================================================
+    # =====================================================
+    # EXPLAINABLE AI - SHAP
+    # =====================================================
 
     print("\n")
     print("=" * 70)
@@ -280,11 +483,11 @@ def main():
     print("=" * 70)
 
     generate_shap(
-        best["Model Path"],
+        final_best["Model Path"],
         processed_dataset
     )
-    print("\nTraining completed successfully.")
-    
+
+    print("\nAURORA Pipeline completed successfully.")
 
 
 if __name__ == "__main__":

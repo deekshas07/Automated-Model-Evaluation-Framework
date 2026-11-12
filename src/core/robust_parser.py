@@ -162,36 +162,47 @@ class RobustCSVParser:
         Tries common delimiters and picks the one that produces
         the most consistent column count.
         """
-        delimiters = [',', '\t', ';', '|', ' ']
+        import csv
+
+        delimiters = [',', ';', '\t', '|']
 
         best_delimiter = ','
         best_score = 0
 
-        # Read first 10 lines
+        # Read first 10 non-empty lines
+        sample_lines = []
         with open(file_path, 'r', encoding=encoding, errors='replace') as f:
-            sample_lines = [f.readline() for _ in range(10)]
+            for _ in range(20):
+                line = f.readline()
+                if not line:
+                    break
+                if line.strip():
+                    sample_lines.append(line)
+                if len(sample_lines) >= 10:
+                    break
 
         for delimiter in delimiters:
-            # Count columns in each line
-            column_counts = [
-                len(line.split(delimiter))
-                for line in sample_lines if line.strip()
-            ]
+            try:
+                reader = csv.reader(sample_lines, delimiter=delimiter)
+                column_counts = [len(row) for row in reader if row]
+            except Exception:
+                column_counts = [
+                    len(line.split(delimiter))
+                    for line in sample_lines if line.strip()
+                ]
 
             if not column_counts:
                 continue
 
-            # Good delimiter has:
-            # 1. Consistent column count across rows
-            # 2. More than 1 column
-            # 3. Not too many columns (likely wrong delimiter)
+            avg_columns = float(np.mean(column_counts))
+            std_columns = float(np.std(column_counts))
 
-            avg_columns = np.mean(column_counts)
-            std_columns = np.std(column_counts)
-
-            # Score: high avg, low std, reasonable range
-            if avg_columns > 1 and avg_columns < 100:
-                score = avg_columns * (1 - std_columns / (avg_columns + 1))
+            # Score: high consistency (low std) and at least 2 columns
+            if 1 < avg_columns <= self.MAX_COLUMNS:
+                score = avg_columns * (1.0 - std_columns / (avg_columns + 1.0))
+                # Slight preference for standard comma when tied
+                if delimiter == ',' and std_columns == 0 and avg_columns >= 2:
+                    score += 0.5
 
                 if score > best_score:
                     best_score = score
@@ -206,17 +217,26 @@ class RobustCSVParser:
         delimiter: str
     ) -> pd.DataFrame:
         """Parse entire file at once (for smaller files)."""
-
-        return pd.read_csv(
-            file_path,
-            sep=delimiter,
-            encoding=encoding,
+        try:
+            return pd.read_csv(
+                file_path,
+                sep=delimiter,
+                encoding=encoding,
+                encoding_errors='replace',
+                on_bad_lines='warn',
+                low_memory=False,
+                skipinitialspace=True,
+            )
+        except Exception:
+            return pd.read_csv(
+                file_path,
+                sep=delimiter,
+                encoding=encoding,
             encoding_errors='replace',  # Replace bad chars with �
-            on_bad_lines='warn',         # Log bad lines but continue
-            engine='python',             # More forgiving parser
-            low_memory=False,            # Don't guess dtypes
-            skipinitialspace=True,       # Strip leading whitespace
-        )
+                on_bad_lines='warn',         # Log bad lines but continue
+                engine='python',             # More forgiving parser
+                skipinitialspace=True,       # Strip leading whitespace
+            )
 
     def _parse_streaming(
         self,
@@ -236,10 +256,12 @@ class RobustCSVParser:
             on_bad_lines='warn',
             engine='python',
             chunksize=self.chunk_size,
-            low_memory=False,
         ) as reader:
             for chunk in reader:
                 chunks.append(chunk)
+
+        if not chunks:
+            return pd.DataFrame()
 
         # Concatenate all chunks
         return pd.concat(chunks, ignore_index=True)
@@ -258,7 +280,7 @@ class RobustCSVParser:
 
         # Issue 1: Remove unnamed columns (pandas adds these for malformed CSVs)
         unnamed_cols = [col for col in df.columns if 'Unnamed' in str(col)]
-        if unnamed_cols:
+        if unnamed_cols and (len(df.columns) - len(unnamed_cols) >= 2):
             warnings_list.append(f"Removed {len(unnamed_cols)} unnamed columns")
             df = df.drop(columns=unnamed_cols)
 
@@ -272,26 +294,40 @@ class RobustCSVParser:
         duplicate_cols = df.columns[df.columns.duplicated()].tolist()
         if duplicate_cols:
             warnings_list.append(f"Found {len(duplicate_cols)} duplicate column names, renaming")
-            # Add suffix to duplicates
-            df.columns = pd.io.parsers.ParserBase({'names': df.columns})._maybe_dedup_names(
-                df.columns
-            )
+            seen: Dict[str, int] = {}
+            deduped_cols = []
+            for col in df.columns:
+                col_str = str(col)
+                if col_str not in seen:
+                    seen[col_str] = 0
+                    deduped_cols.append(col_str)
+                else:
+                    seen[col_str] += 1
+                    deduped_cols.append(f"{col_str}_{seen[col_str]}")
+            df.columns = deduped_cols
 
         # Issue 4: Clean column names
-        original_cols = df.columns.tolist()
-        df.columns = df.columns.str.strip()  # Remove leading/trailing whitespace
-        df.columns = df.columns.str.replace(r'\s+', '_', regex=True)  # Replace spaces with underscore
+        original_cols = [str(c) for c in df.columns.tolist()]
+        cleaned_cols = (
+            pd.Index(original_cols)
+            .str.strip()
+            .str.replace(r'\s+', '_', regex=True)
+        )
+        df.columns = cleaned_cols
 
         renamed = sum(1 for a, b in zip(original_cols, df.columns) if a != b)
         if renamed > 0:
             warnings_list.append(f"Cleaned {renamed} column names (removed whitespace)")
 
-        # Issue 5: Handle mixed-type columns
+        # Issue 5: Handle mixed-type non-null values in object columns without turning NaN into "nan"
         for col in df.columns:
-            type_counts = df[col].apply(type).value_counts()
-            if len(type_counts) > 1:
-                warnings_list.append(f"Column '{col}' has mixed types, converting to string")
-                df[col] = df[col].astype(str)
+            if df[col].dtype == object:
+                non_null = df[col].dropna()
+                if len(non_null) > 0:
+                    type_counts = non_null.apply(type).value_counts()
+                    if len(type_counts) > 1:
+                        warnings_list.append(f"Column '{col}' has mixed types, converting non-null values to string")
+                        df[col] = df[col].where(df[col].isna(), df[col].astype(str))
 
         return df, warnings_list
 

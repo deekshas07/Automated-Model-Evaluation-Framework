@@ -1,0 +1,1040 @@
+{
+  "dataset_id": "a9a1dd81",
+  "dataset_name": "dry_bean.csv",
+  "file_size_bytes": 2484758,
+  "uploaded_at": "2026-11-11T14:28:17.890993",
+  "preprocessed_path": "preprocessed\\preprocessed_dataset.csv",
+  "report_path": "reports\\preprocessing_report.csv",
+  "rows": 13611,
+  "columns": 17,
+  "feature_count": 16,
+  "target_column": "Class",
+  "task_type": "classification",
+  "task_detection": {
+    "task_type": "classification",
+    "target_column": "Class",
+    "target_dtype": "str",
+    "unique_values": 7,
+    "unique_ratio": 0.0005,
+    "reason": "Categorical target column 'Class' with 7 distinct classes.",
+    "class_distribution": [
+      {
+        "label": "DERMASON",
+        "count": 3546,
+        "percentage": 26.05
+      },
+      {
+        "label": "SIRA",
+        "count": 2636,
+        "percentage": 19.37
+      },
+      {
+        "label": "SEKER",
+        "count": 2027,
+        "percentage": 14.89
+      },
+      {
+        "label": "HOROZ",
+        "count": 1928,
+        "percentage": 14.17
+      },
+      {
+        "label": "CALI",
+        "count": 1630,
+        "percentage": 11.98
+      },
+      {
+        "label": "BARBUNYA",
+        "count": 1322,
+        "percentage": 9.71
+      },
+      {
+        "label": "BOMBAY",
+        "count": 522,
+        "percentage": 3.84
+      }
+    ]
+  },
+  "missing_summary": {
+    "total_cells": 231387,
+    "missing_cells": 0,
+    "missing_percentage": 0.0,
+    "columns_with_missing": 0,
+    "is_complete": true
+  },
+  "dtype_summary": {
+    "numeric": 16,
+    "categorical": 1,
+    "boolean": 0
+  },
+  "preprocessing_summary": [
+    {
+      "action": "binning_equal_freq",
+      "label": "Binning Equal Freq",
+      "count": 3
+    },
+    {
+      "action": "drop_column",
+      "label": "Drop Column",
+      "count": 1
+    },
+    {
+      "action": "keep_as_is",
+      "label": "Keep As Is",
+      "count": 7
+    },
+    {
+      "action": "robust_scale",
+      "label": "Robust Scale",
+      "count": 1
+    },
+    {
+      "action": "sqrt_transform",
+      "label": "Sqrt Transform",
+      "count": 3
+    },
+    {
+      "action": "standard_scale",
+      "label": "Standard Scale",
+      "count": 1
+    }
+  ],
+  "preprocessing_report": [
+    {
+      "Column": "Area",
+      "Recommended Action": "binning_equal_freq",
+      "Confidence": 0.83,
+      "Source": "symbolic"
+    },
+    {
+      "Column": "Perimeter",
+      "Recommended Action": "sqrt_transform",
+      "Confidence": 0.81,
+      "Source": "symbolic"
+    },
+    {
+      "Column": "MajorAxisLength",
+      "Recommended Action": "sqrt_transform",
+      "Confidence": 0.81,
+      "Source": "symbolic"
+    },
+    {
+      "Column": "MinorAxisLength",
+      "Recommended Action": "binning_equal_freq",
+      "Confidence": 0.83,
+      "Source": "symbolic"
+    },
+    {
+      "Column": "AspectRation",
+      "Recommended Action": "keep_as_is",
+      "Confidence": 0.61,
+      "Source": "symbolic"
+    },
+    {
+      "Column": "Eccentricity",
+      "Recommended Action": "robust_scale",
+      "Confidence": 0.83,
+      "Source": "symbolic"
+    },
+    {
+      "Column": "ConvexArea",
+      "Recommended Action": "binning_equal_freq",
+      "Confidence": 0.83,
+      "Source": "symbolic"
+    },
+    {
+      "Column": "EquivDiameter",
+      "Recommended Action": "sqrt_transform",
+      "Confidence": 0.81,
+      "Source": "symbolic"
+    },
+    {
+      "Column": "Extent",
+      "Recommended Action": "keep_as_is",
+      "Confidence": 0.53,
+      "Source": "symbolic"
+    },
+    {
+      "Column": "Solidity",
+      "Recommended Action": "drop_column",
+      "Confidence": 0.87,
+      "Source": "symbolic"
+    },
+    {
+      "Column": "roundness",
+      "Recommended Action": "keep_as_is",
+      "Confidence": 0.61,
+      "Source": "symbolic"
+    },
+    {
+      "Column": "Compactness",
+      "Recommended Action": "standard_scale",
+      "Confidence": 0.81,
+      "Source": "symbolic"
+    },
+    {
+      "Column": "ShapeFactor1",
+      "Recommended Action": "keep_as_is",
+      "Confidence": 0.64,
+      "Source": "symbolic"
+    },
+    {
+      "Column": "ShapeFactor2",
+      "Recommended Action": "keep_as_is",
+      "Confidence": 0.64,
+      "Source": "symbolic"
+    },
+    {
+      "Column": "ShapeFactor3",
+      "Recommended Action": "keep_as_is",
+      "Confidence": 0.61,
+      "Source": "symbolic"
+    },
+    {
+      "Column": "ShapeFactor4",
+      "Recommended Action": "keep_as_is",
+      "Confidence": 0.64,
+      "Source": "symbolic"
+    }
+  ],
+  "features": [
+    {
+      "name": "Area",
+      "position": 1,
+      "is_target": false,
+      "dtype": "int64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "missing_percentage": 0.0,
+      "unique_count": 12011,
+      "sample_values": [
+        "28395",
+        "28734",
+        "29380",
+        "30008"
+      ],
+      "recommended_action": "binning_equal_freq",
+      "confidence": 0.83,
+      "source": "symbolic",
+      "explanation": "\ud83d\udcca **Recommendation for 'Area'**: binning_equal_freq\n\ud83c\udfaf **Confidence**: 82.8% (Good - Solid recommendation)\n\ud83d\udd0d **Source**: Symbolic\n\n**Why this action?**\nGroup continuous values into equal-frequency bins\n\n**Reasons based on your data:**\n1. \n2. \n3. \n\n**Impact on your data:**\nContinuous values become categorical bins, each containing equal numbers of samples\n\n**Alternative approaches:**\nUse BIN_UNIFORM for equal-width bins instead of equal-frequency\n\n**Key Statistics:**\n  \u2022 Total rows: 13,611\n  \u2022 Unique values: 12,011\n  \u2022 Skewness: 2.95 (right-skewed)",
+      "stats": {
+        "mean": 53048.285,
+        "std": 29324.096,
+        "min": 20420.0,
+        "max": 254616.0
+      }
+    },
+    {
+      "name": "Perimeter",
+      "position": 2,
+      "is_target": false,
+      "dtype": "float64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "missing_percentage": 0.0,
+      "unique_count": 13351,
+      "sample_values": [
+        "610.291",
+        "638.018",
+        "624.11",
+        "645.884"
+      ],
+      "recommended_action": "sqrt_transform",
+      "confidence": 0.81,
+      "source": "symbolic",
+      "explanation": "\ud83d\udcca **Recommendation for 'Perimeter'**: sqrt_transform\n\ud83c\udfaf **Confidence**: 81.0% (Good - Solid recommendation)\n\ud83d\udd0d **Source**: Symbolic\n\n**Based on the data characteristics**, this action is recommended.\n\n**Key Statistics:**\n  \u2022 Total rows: 13,611\n  \u2022 Unique values: 13,351\n  \u2022 Skewness: 1.63 (right-skewed)",
+      "stats": {
+        "mean": 855.283,
+        "std": 214.29,
+        "min": 524.736,
+        "max": 1985.37
+      }
+    },
+    {
+      "name": "MajorAxisLength",
+      "position": 3,
+      "is_target": false,
+      "dtype": "float64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "missing_percentage": 0.0,
+      "unique_count": 13543,
+      "sample_values": [
+        "208.1781167",
+        "200.5247957",
+        "212.8261299",
+        "210.557999"
+      ],
+      "recommended_action": "sqrt_transform",
+      "confidence": 0.81,
+      "source": "symbolic",
+      "explanation": "\ud83d\udcca **Recommendation for 'MajorAxisLength'**: sqrt_transform\n\ud83c\udfaf **Confidence**: 81.0% (Good - Solid recommendation)\n\ud83d\udd0d **Source**: Symbolic\n\n**Based on the data characteristics**, this action is recommended.\n\n**Key Statistics:**\n  \u2022 Total rows: 13,611\n  \u2022 Unique values: 13,543\n  \u2022 Skewness: 1.36 (right-skewed)",
+      "stats": {
+        "mean": 320.142,
+        "std": 85.694,
+        "min": 183.601,
+        "max": 738.86
+      }
+    },
+    {
+      "name": "MinorAxisLength",
+      "position": 4,
+      "is_target": false,
+      "dtype": "float64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "missing_percentage": 0.0,
+      "unique_count": 13543,
+      "sample_values": [
+        "173.888747",
+        "182.7344194",
+        "175.9311426",
+        "182.5165157"
+      ],
+      "recommended_action": "binning_equal_freq",
+      "confidence": 0.83,
+      "source": "symbolic",
+      "explanation": "\ud83d\udcca **Recommendation for 'MinorAxisLength'**: binning_equal_freq\n\ud83c\udfaf **Confidence**: 82.8% (Good - Solid recommendation)\n\ud83d\udd0d **Source**: Symbolic\n\n**Why this action?**\nGroup continuous values into equal-frequency bins\n\n**Reasons based on your data:**\n1. \n2. \n3. \n\n**Impact on your data:**\nContinuous values become categorical bins, each containing equal numbers of samples\n\n**Alternative approaches:**\nUse BIN_UNIFORM for equal-width bins instead of equal-frequency\n\n**Key Statistics:**\n  \u2022 Total rows: 13,611\n  \u2022 Unique values: 13,543\n  \u2022 Skewness: 2.24 (right-skewed)",
+      "stats": {
+        "mean": 202.271,
+        "std": 44.97,
+        "min": 122.513,
+        "max": 460.198
+      }
+    },
+    {
+      "name": "AspectRation",
+      "position": 5,
+      "is_target": false,
+      "dtype": "float64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "missing_percentage": 0.0,
+      "unique_count": 13543,
+      "sample_values": [
+        "1.197191424",
+        "1.097356461",
+        "1.209712656",
+        "1.153638059"
+      ],
+      "recommended_action": "keep_as_is",
+      "confidence": 0.61,
+      "source": "symbolic",
+      "explanation": "\ud83d\udcca **Recommendation for 'AspectRation'**: keep_as_is\n\ud83c\udfaf **Confidence**: 61.4% (Low - Manual review strongly advised)\n\ud83d\udd0d **Source**: Symbolic\n\n**Based on the data characteristics**, this action is recommended.\n\n**Key Statistics:**\n  \u2022 Total rows: 13,611\n  \u2022 Unique values: 13,543\n  \u2022 Skewness: 0.58 (right-skewed)",
+      "stats": {
+        "mean": 1.583,
+        "std": 0.247,
+        "min": 1.025,
+        "max": 2.43
+      }
+    },
+    {
+      "name": "Eccentricity",
+      "position": 6,
+      "is_target": false,
+      "dtype": "float64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "missing_percentage": 0.0,
+      "unique_count": 13543,
+      "sample_values": [
+        "0.549812187",
+        "0.411785251",
+        "0.562727317",
+        "0.498615976"
+      ],
+      "recommended_action": "robust_scale",
+      "confidence": 0.83,
+      "source": "symbolic",
+      "explanation": "\ud83d\udcca **Recommendation for 'Eccentricity'**: robust_scale\n\ud83c\udfaf **Confidence**: 82.8% (Good - Solid recommendation)\n\ud83d\udd0d **Source**: Symbolic\n\n**Why this action?**\nScale data using median and IQR (robust to outliers)\n\n**Reasons based on your data:**\n1. \n2. \n3. \n\n**Impact on your data:**\nData will be scaled while preserving the relative importance of outliers\n\n**Alternative approaches:**\nCould remove outliers first with CLIP_OUTLIERS, but you'd lose potentially important data\n\n**Key Statistics:**\n  \u2022 Total rows: 13,611\n  \u2022 Unique values: 13,543\n  \u2022 Skewness: -1.06 (left-skewed)",
+      "stats": {
+        "mean": 0.751,
+        "std": 0.092,
+        "min": 0.219,
+        "max": 0.911
+      }
+    },
+    {
+      "name": "ConvexArea",
+      "position": 7,
+      "is_target": false,
+      "dtype": "int64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "missing_percentage": 0.0,
+      "unique_count": 12066,
+      "sample_values": [
+        "28715",
+        "29172",
+        "29690",
+        "30724"
+      ],
+      "recommended_action": "binning_equal_freq",
+      "confidence": 0.83,
+      "source": "symbolic",
+      "explanation": "\ud83d\udcca **Recommendation for 'ConvexArea'**: binning_equal_freq\n\ud83c\udfaf **Confidence**: 82.8% (Good - Solid recommendation)\n\ud83d\udd0d **Source**: Symbolic\n\n**Why this action?**\nGroup continuous values into equal-frequency bins\n\n**Reasons based on your data:**\n1. \n2. \n3. \n\n**Impact on your data:**\nContinuous values become categorical bins, each containing equal numbers of samples\n\n**Alternative approaches:**\nUse BIN_UNIFORM for equal-width bins instead of equal-frequency\n\n**Key Statistics:**\n  \u2022 Total rows: 13,611\n  \u2022 Unique values: 12,066\n  \u2022 Skewness: 2.94 (right-skewed)",
+      "stats": {
+        "mean": 53768.2,
+        "std": 29774.916,
+        "min": 20684.0,
+        "max": 263261.0
+      }
+    },
+    {
+      "name": "EquivDiameter",
+      "position": 8,
+      "is_target": false,
+      "dtype": "float64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "missing_percentage": 0.0,
+      "unique_count": 12011,
+      "sample_values": [
+        "190.1410973",
+        "191.2727505",
+        "193.4109041",
+        "195.4670618"
+      ],
+      "recommended_action": "sqrt_transform",
+      "confidence": 0.81,
+      "source": "symbolic",
+      "explanation": "\ud83d\udcca **Recommendation for 'EquivDiameter'**: sqrt_transform\n\ud83c\udfaf **Confidence**: 81.0% (Good - Solid recommendation)\n\ud83d\udd0d **Source**: Symbolic\n\n**Based on the data characteristics**, this action is recommended.\n\n**Key Statistics:**\n  \u2022 Total rows: 13,611\n  \u2022 Unique values: 12,011\n  \u2022 Skewness: 1.95 (right-skewed)",
+      "stats": {
+        "mean": 253.064,
+        "std": 59.177,
+        "min": 161.244,
+        "max": 569.374
+      }
+    },
+    {
+      "name": "Extent",
+      "position": 9,
+      "is_target": false,
+      "dtype": "float64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "missing_percentage": 0.0,
+      "unique_count": 13535,
+      "sample_values": [
+        "0.763922518",
+        "0.783968133",
+        "0.778113248",
+        "0.782681273"
+      ],
+      "recommended_action": "keep_as_is",
+      "confidence": 0.53,
+      "source": "symbolic",
+      "explanation": "\ud83d\udcca **Recommendation for 'Extent'**: keep_as_is\n\ud83c\udfaf **Confidence**: 52.7% (Low - Manual review strongly advised)\n\ud83d\udd0d **Source**: Symbolic\n\n**Based on the data characteristics**, this action is recommended.\n\n**Key Statistics:**\n  \u2022 Total rows: 13,611\n  \u2022 Unique values: 13,535\n  \u2022 Skewness: -0.90 (left-skewed)",
+      "stats": {
+        "mean": 0.75,
+        "std": 0.049,
+        "min": 0.555,
+        "max": 0.866
+      }
+    },
+    {
+      "name": "Solidity",
+      "position": 10,
+      "is_target": false,
+      "dtype": "float64",
+      "semantic_type": "identifier",
+      "missing_count": 0,
+      "missing_percentage": 0.0,
+      "unique_count": 13522,
+      "sample_values": [
+        "0.988855999",
+        "0.984985603",
+        "0.989558774",
+        "0.976695743"
+      ],
+      "recommended_action": "drop_column",
+      "confidence": 0.87,
+      "source": "symbolic",
+      "explanation": "\ud83d\udcca **Recommendation for 'Solidity'**: drop_column\n\ud83c\udfaf **Confidence**: 87.4% (High - Reliable recommendation)\n\ud83d\udd0d **Source**: Symbolic\n\n**Why this action?**\nThis column should be removed from the dataset\n\n**Reasons based on your data:**\n1. \n2. \n3. \n\n**Impact on your data:**\nRemoving this column will improve model performance and reduce noise\n\n**Alternative approaches:**\nIf you need this data, consider collecting more complete records first\n\n**Key Statistics:**\n  \u2022 Total rows: 13,611\n  \u2022 Unique values: 13,522\n  \u2022 Skewness: -2.55 (left-skewed)",
+      "stats": {
+        "mean": 0.987,
+        "std": 0.005,
+        "min": 0.919,
+        "max": 0.995
+      }
+    },
+    {
+      "name": "roundness",
+      "position": 11,
+      "is_target": false,
+      "dtype": "float64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "missing_percentage": 0.0,
+      "unique_count": 13540,
+      "sample_values": [
+        "0.958027126",
+        "0.887033637",
+        "0.947849473",
+        "0.903936374"
+      ],
+      "recommended_action": "keep_as_is",
+      "confidence": 0.61,
+      "source": "symbolic",
+      "explanation": "\ud83d\udcca **Recommendation for 'roundness'**: keep_as_is\n\ud83c\udfaf **Confidence**: 60.8% (Low - Manual review strongly advised)\n\ud83d\udd0d **Source**: Symbolic\n\n**Based on the data characteristics**, this action is recommended.\n\n**Key Statistics:**\n  \u2022 Total rows: 13,611\n  \u2022 Unique values: 13,540\n  \u2022 Skewness: -0.64 (left-skewed)",
+      "stats": {
+        "mean": 0.873,
+        "std": 0.06,
+        "min": 0.49,
+        "max": 0.991
+      }
+    },
+    {
+      "name": "Compactness",
+      "position": 12,
+      "is_target": false,
+      "dtype": "float64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "missing_percentage": 0.0,
+      "unique_count": 13543,
+      "sample_values": [
+        "0.913357755",
+        "0.953860842",
+        "0.908774239",
+        "0.928328835"
+      ],
+      "recommended_action": "standard_scale",
+      "confidence": 0.81,
+      "source": "symbolic",
+      "explanation": "\ud83d\udcca **Recommendation for 'Compactness'**: standard_scale\n\ud83c\udfaf **Confidence**: 81.0% (Good - Solid recommendation)\n\ud83d\udd0d **Source**: Symbolic\n\n**Why this action?**\nStandardize values to have mean=0 and standard deviation=1\n\n**Reasons based on your data:**\n1. \n2. \n\n**Impact on your data:**\nAll features will be on the same scale, preventing large values from dominating the model\n\n**Alternative approaches:**\nUse MinMax scaling if you need values between 0 and 1 instead\n\n**Key Statistics:**\n  \u2022 Total rows: 13,611\n  \u2022 Unique values: 13,543\n  \u2022 Skewness: 0.04 (right-skewed)",
+      "stats": {
+        "mean": 0.8,
+        "std": 0.062,
+        "min": 0.641,
+        "max": 0.987
+      }
+    },
+    {
+      "name": "ShapeFactor1",
+      "position": 13,
+      "is_target": false,
+      "dtype": "float64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "missing_percentage": 0.0,
+      "unique_count": 13521,
+      "sample_values": [
+        "0.007331506",
+        "0.006978659",
+        "0.007243912",
+        "0.007016729"
+      ],
+      "recommended_action": "keep_as_is",
+      "confidence": 0.64,
+      "source": "symbolic",
+      "explanation": "\ud83d\udcca **Recommendation for 'ShapeFactor1'**: keep_as_is\n\ud83c\udfaf **Confidence**: 64.1% (Low - Manual review strongly advised)\n\ud83d\udd0d **Source**: Symbolic\n\n**Based on the data characteristics**, this action is recommended.\n\n**Key Statistics:**\n  \u2022 Total rows: 13,611\n  \u2022 Unique values: 13,521\n  \u2022 Skewness: -0.53 (left-skewed)",
+      "stats": {
+        "mean": 0.007,
+        "std": 0.001,
+        "min": 0.003,
+        "max": 0.01
+      }
+    },
+    {
+      "name": "ShapeFactor2",
+      "position": 14,
+      "is_target": false,
+      "dtype": "float64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "missing_percentage": 0.0,
+      "unique_count": 13506,
+      "sample_values": [
+        "0.003147289",
+        "0.003563624",
+        "0.003047733",
+        "0.003214562"
+      ],
+      "recommended_action": "keep_as_is",
+      "confidence": 0.64,
+      "source": "symbolic",
+      "explanation": "\ud83d\udcca **Recommendation for 'ShapeFactor2'**: keep_as_is\n\ud83c\udfaf **Confidence**: 64.1% (Low - Manual review strongly advised)\n\ud83d\udd0d **Source**: Symbolic\n\n**Based on the data characteristics**, this action is recommended.\n\n**Key Statistics:**\n  \u2022 Total rows: 13,611\n  \u2022 Unique values: 13,506\n  \u2022 Skewness: 0.30 (right-skewed)",
+      "stats": {
+        "mean": 0.002,
+        "std": 0.001,
+        "min": 0.001,
+        "max": 0.004
+      }
+    },
+    {
+      "name": "ShapeFactor3",
+      "position": 15,
+      "is_target": false,
+      "dtype": "float64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "missing_percentage": 0.0,
+      "unique_count": 13543,
+      "sample_values": [
+        "0.834222388",
+        "0.909850506",
+        "0.825870617",
+        "0.861794425"
+      ],
+      "recommended_action": "keep_as_is",
+      "confidence": 0.61,
+      "source": "symbolic",
+      "explanation": "\ud83d\udcca **Recommendation for 'ShapeFactor3'**: keep_as_is\n\ud83c\udfaf **Confidence**: 60.8% (Low - Manual review strongly advised)\n\ud83d\udd0d **Source**: Symbolic\n\n**Based on the data characteristics**, this action is recommended.\n\n**Key Statistics:**\n  \u2022 Total rows: 13,611\n  \u2022 Unique values: 13,543\n  \u2022 Skewness: 0.24 (right-skewed)",
+      "stats": {
+        "mean": 0.644,
+        "std": 0.099,
+        "min": 0.41,
+        "max": 0.975
+      }
+    },
+    {
+      "name": "ShapeFactor4",
+      "position": 16,
+      "is_target": false,
+      "dtype": "float64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "missing_percentage": 0.0,
+      "unique_count": 13532,
+      "sample_values": [
+        "0.998723889",
+        "0.998430331",
+        "0.999066137",
+        "0.994198849"
+      ],
+      "recommended_action": "keep_as_is",
+      "confidence": 0.64,
+      "source": "symbolic",
+      "explanation": "\ud83d\udcca **Recommendation for 'ShapeFactor4'**: keep_as_is\n\ud83c\udfaf **Confidence**: 64.1% (Low - Manual review strongly advised)\n\ud83d\udd0d **Source**: Symbolic\n\n**Based on the data characteristics**, this action is recommended.\n\n**Key Statistics:**\n  \u2022 Total rows: 13,611\n  \u2022 Unique values: 13,532\n  \u2022 Skewness: -2.76 (left-skewed)",
+      "stats": {
+        "mean": 0.995,
+        "std": 0.004,
+        "min": 0.948,
+        "max": 1.0
+      }
+    },
+    {
+      "name": "Class",
+      "position": 17,
+      "is_target": true,
+      "dtype": "str",
+      "semantic_type": "categorical",
+      "missing_count": 0,
+      "missing_percentage": 0.0,
+      "unique_count": 7,
+      "sample_values": [
+        "SEKER",
+        "BARBUNYA",
+        "BOMBAY",
+        "CALI"
+      ],
+      "recommended_action": "target_variable",
+      "confidence": 1.0,
+      "source": "target_detector",
+      "explanation": "Target column (last column of dataset) used as prediction label.",
+      "stats": {}
+    }
+  ],
+  "preview_columns": [
+    "Area",
+    "Perimeter",
+    "MajorAxisLength",
+    "MinorAxisLength",
+    "AspectRation",
+    "Eccentricity",
+    "ConvexArea",
+    "EquivDiameter",
+    "Extent",
+    "Solidity",
+    "roundness",
+    "Compactness",
+    "ShapeFactor1",
+    "ShapeFactor2",
+    "ShapeFactor3",
+    "ShapeFactor4",
+    "Class"
+  ],
+  "preview_rows": [
+    {
+      "Area": 28395,
+      "Perimeter": 610.291,
+      "MajorAxisLength": 208.1781167,
+      "MinorAxisLength": 173.888747,
+      "AspectRation": 1.197191424,
+      "Eccentricity": 0.549812187,
+      "ConvexArea": 28715,
+      "EquivDiameter": 190.1410973,
+      "Extent": 0.763922518,
+      "Solidity": 0.988855999,
+      "roundness": 0.958027126,
+      "Compactness": 0.913357755,
+      "ShapeFactor1": 0.007331506,
+      "ShapeFactor2": 0.003147289,
+      "ShapeFactor3": 0.834222388,
+      "ShapeFactor4": 0.998723889,
+      "Class": "SEKER"
+    },
+    {
+      "Area": 28734,
+      "Perimeter": 638.018,
+      "MajorAxisLength": 200.5247957,
+      "MinorAxisLength": 182.7344194,
+      "AspectRation": 1.097356461,
+      "Eccentricity": 0.411785251,
+      "ConvexArea": 29172,
+      "EquivDiameter": 191.2727505,
+      "Extent": 0.783968133,
+      "Solidity": 0.984985603,
+      "roundness": 0.887033637,
+      "Compactness": 0.953860842,
+      "ShapeFactor1": 0.006978659,
+      "ShapeFactor2": 0.003563624,
+      "ShapeFactor3": 0.909850506,
+      "ShapeFactor4": 0.998430331,
+      "Class": "SEKER"
+    },
+    {
+      "Area": 29380,
+      "Perimeter": 624.11,
+      "MajorAxisLength": 212.8261299,
+      "MinorAxisLength": 175.9311426,
+      "AspectRation": 1.209712656,
+      "Eccentricity": 0.562727317,
+      "ConvexArea": 29690,
+      "EquivDiameter": 193.4109041,
+      "Extent": 0.778113248,
+      "Solidity": 0.989558774,
+      "roundness": 0.947849473,
+      "Compactness": 0.908774239,
+      "ShapeFactor1": 0.007243912,
+      "ShapeFactor2": 0.003047733,
+      "ShapeFactor3": 0.825870617,
+      "ShapeFactor4": 0.999066137,
+      "Class": "SEKER"
+    },
+    {
+      "Area": 30008,
+      "Perimeter": 645.884,
+      "MajorAxisLength": 210.557999,
+      "MinorAxisLength": 182.5165157,
+      "AspectRation": 1.153638059,
+      "Eccentricity": 0.498615976,
+      "ConvexArea": 30724,
+      "EquivDiameter": 195.4670618,
+      "Extent": 0.782681273,
+      "Solidity": 0.976695743,
+      "roundness": 0.903936374,
+      "Compactness": 0.928328835,
+      "ShapeFactor1": 0.007016729,
+      "ShapeFactor2": 0.003214562,
+      "ShapeFactor3": 0.861794425,
+      "ShapeFactor4": 0.994198849,
+      "Class": "SEKER"
+    },
+    {
+      "Area": 30140,
+      "Perimeter": 620.134,
+      "MajorAxisLength": 201.8478822,
+      "MinorAxisLength": 190.2792788,
+      "AspectRation": 1.06079802,
+      "Eccentricity": 0.333679658,
+      "ConvexArea": 30417,
+      "EquivDiameter": 195.896503,
+      "Extent": 0.773098035,
+      "Solidity": 0.99089325,
+      "roundness": 0.984877069,
+      "Compactness": 0.970515523,
+      "ShapeFactor1": 0.00669701,
+      "ShapeFactor2": 0.003664972,
+      "ShapeFactor3": 0.941900381,
+      "ShapeFactor4": 0.999166059,
+      "Class": "SEKER"
+    },
+    {
+      "Area": 30279,
+      "Perimeter": 634.927,
+      "MajorAxisLength": 212.5605564,
+      "MinorAxisLength": 181.5101816,
+      "AspectRation": 1.171066849,
+      "Eccentricity": 0.52040066,
+      "ConvexArea": 30600,
+      "EquivDiameter": 196.3477022,
+      "Extent": 0.775688485,
+      "Solidity": 0.989509804,
+      "roundness": 0.943851783,
+      "Compactness": 0.923725952,
+      "ShapeFactor1": 0.007020065,
+      "ShapeFactor2": 0.003152779,
+      "ShapeFactor3": 0.853269634,
+      "ShapeFactor4": 0.999235781,
+      "Class": "SEKER"
+    },
+    {
+      "Area": 30477,
+      "Perimeter": 670.033,
+      "MajorAxisLength": 211.0501553,
+      "MinorAxisLength": 184.0390501,
+      "AspectRation": 1.146768336,
+      "Eccentricity": 0.489477894,
+      "ConvexArea": 30970,
+      "EquivDiameter": 196.9886332,
+      "Extent": 0.762401501,
+      "Solidity": 0.984081369,
+      "roundness": 0.853079869,
+      "Compactness": 0.933373552,
+      "ShapeFactor1": 0.006924899,
+      "ShapeFactor2": 0.003242016,
+      "ShapeFactor3": 0.871186188,
+      "ShapeFactor4": 0.999048736,
+      "Class": "SEKER"
+    },
+    {
+      "Area": 30519,
+      "Perimeter": 629.727,
+      "MajorAxisLength": 212.9967551,
+      "MinorAxisLength": 182.7372038,
+      "AspectRation": 1.165590535,
+      "Eccentricity": 0.513759558,
+      "ConvexArea": 30847,
+      "EquivDiameter": 197.1243203,
+      "Extent": 0.770681818,
+      "Solidity": 0.989366875,
+      "roundness": 0.967109244,
+      "Compactness": 0.925480392,
+      "ShapeFactor1": 0.006979152,
+      "ShapeFactor2": 0.003158285,
+      "ShapeFactor3": 0.856513956,
+      "ShapeFactor4": 0.99834456,
+      "Class": "SEKER"
+    },
+    {
+      "Area": 30685,
+      "Perimeter": 635.681,
+      "MajorAxisLength": 213.5341452,
+      "MinorAxisLength": 183.1571463,
+      "AspectRation": 1.165852108,
+      "Eccentricity": 0.51408086,
+      "ConvexArea": 31044,
+      "EquivDiameter": 197.659696,
+      "Extent": 0.771561479,
+      "Solidity": 0.988435769,
+      "roundness": 0.954239808,
+      "Compactness": 0.925658498,
+      "ShapeFactor1": 0.00695891,
+      "ShapeFactor2": 0.00315155,
+      "ShapeFactor3": 0.856843654,
+      "ShapeFactor4": 0.998952981,
+      "Class": "SEKER"
+    },
+    {
+      "Area": 30834,
+      "Perimeter": 631.934,
+      "MajorAxisLength": 217.2278128,
+      "MinorAxisLength": 180.8974686,
+      "AspectRation": 1.2008339,
+      "Eccentricity": 0.553642225,
+      "ConvexArea": 31120,
+      "EquivDiameter": 198.1390121,
+      "Extent": 0.783682806,
+      "Solidity": 0.990809769,
+      "roundness": 0.97027823,
+      "Compactness": 0.91212543,
+      "ShapeFactor1": 0.007045074,
+      "ShapeFactor2": 0.00300804,
+      "ShapeFactor3": 0.8319728,
+      "ShapeFactor4": 0.999061142,
+      "Class": "SEKER"
+    },
+    {
+      "Area": 30917,
+      "Perimeter": 640.765,
+      "MajorAxisLength": 213.5600894,
+      "MinorAxisLength": 184.4398709,
+      "AspectRation": 1.157884618,
+      "Eccentricity": 0.504102365,
+      "ConvexArea": 31280,
+      "EquivDiameter": 198.4055115,
+      "Extent": 0.770805285,
+      "Solidity": 0.988395141,
+      "roundness": 0.94625818,
+      "Compactness": 0.929038343,
+      "ShapeFactor1": 0.006907529,
+      "ShapeFactor2": 0.00317422,
+      "ShapeFactor3": 0.863112242,
+      "ShapeFactor4": 0.999384389,
+      "Class": "SEKER"
+    },
+    {
+      "Area": 31091,
+      "Perimeter": 638.558,
+      "MajorAxisLength": 210.4862549,
+      "MinorAxisLength": 188.3268476,
+      "AspectRation": 1.117664622,
+      "Eccentricity": 0.446621924,
+      "ConvexArea": 31458,
+      "EquivDiameter": 198.9630385,
+      "Extent": 0.786377317,
+      "Solidity": 0.988333651,
+      "roundness": 0.958172836,
+      "Compactness": 0.945254305,
+      "ShapeFactor1": 0.006770006,
+      "ShapeFactor2": 0.003333984,
+      "ShapeFactor3": 0.8935057,
+      "ShapeFactor4": 0.998639711,
+      "Class": "SEKER"
+    },
+    {
+      "Area": 31107,
+      "Perimeter": 640.594,
+      "MajorAxisLength": 214.6485485,
+      "MinorAxisLength": 184.9692526,
+      "AspectRation": 1.160455295,
+      "Eccentricity": 0.507365875,
+      "ConvexArea": 31423,
+      "EquivDiameter": 199.0142269,
+      "Extent": 0.761046142,
+      "Solidity": 0.989943672,
+      "roundness": 0.952581757,
+      "Compactness": 0.927163162,
+      "ShapeFactor1": 0.006900329,
+      "ShapeFactor2": 0.003145388,
+      "ShapeFactor3": 0.859631529,
+      "ShapeFactor4": 0.997563959,
+      "Class": "SEKER"
+    },
+    {
+      "Area": 31158,
+      "Perimeter": 642.626,
+      "MajorAxisLength": 216.4848362,
+      "MinorAxisLength": 183.6443122,
+      "AspectRation": 1.178826797,
+      "Eccentricity": 0.529514251,
+      "ConvexArea": 31492,
+      "EquivDiameter": 199.1773023,
+      "Extent": 0.798759229,
+      "Solidity": 0.989394132,
+      "roundness": 0.948119004,
+      "Compactness": 0.92005198,
+      "ShapeFactor1": 0.00694797,
+      "ShapeFactor2": 0.003071052,
+      "ShapeFactor3": 0.846495646,
+      "ShapeFactor4": 0.997871751,
+      "Class": "SEKER"
+    },
+    {
+      "Area": 31158,
+      "Perimeter": 641.105,
+      "MajorAxisLength": 212.0669751,
+      "MinorAxisLength": 187.1929601,
+      "AspectRation": 1.132879009,
+      "Eccentricity": 0.469924157,
+      "ConvexArea": 31474,
+      "EquivDiameter": 199.1773023,
+      "Extent": 0.781313473,
+      "Solidity": 0.989959967,
+      "roundness": 0.952623101,
+      "Compactness": 0.939218858,
+      "ShapeFactor1": 0.006806181,
+      "ShapeFactor2": 0.00326701,
+      "ShapeFactor3": 0.882132064,
+      "ShapeFactor4": 0.999348898,
+      "Class": "SEKER"
+    },
+    {
+      "Area": 31178,
+      "Perimeter": 636.888,
+      "MajorAxisLength": 212.9759252,
+      "MinorAxisLength": 186.5620882,
+      "AspectRation": 1.141582018,
+      "Eccentricity": 0.482352224,
+      "ConvexArea": 31520,
+      "EquivDiameter": 199.2412169,
+      "Extent": 0.764110482,
+      "Solidity": 0.989149746,
+      "roundness": 0.965899596,
+      "Compactness": 0.935510513,
+      "ShapeFactor1": 0.006830968,
+      "ShapeFactor2": 0.003227429,
+      "ShapeFactor3": 0.875179919,
+      "ShapeFactor4": 0.999089658,
+      "Class": "SEKER"
+    },
+    {
+      "Area": 31202,
+      "Perimeter": 644.454,
+      "MajorAxisLength": 215.6406947,
+      "MinorAxisLength": 184.4716842,
+      "AspectRation": 1.168963657,
+      "Eccentricity": 0.517871223,
+      "ConvexArea": 31573,
+      "EquivDiameter": 199.3178875,
+      "Extent": 0.779192888,
+      "Solidity": 0.988249454,
+      "roundness": 0.944079243,
+      "Compactness": 0.924305534,
+      "ShapeFactor1": 0.006911118,
+      "ShapeFactor2": 0.003111647,
+      "ShapeFactor3": 0.85434072,
+      "ShapeFactor4": 0.998693253,
+      "Class": "SEKER"
+    },
+    {
+      "Area": 31203,
+      "Perimeter": 639.782,
+      "MajorAxisLength": 215.067737,
+      "MinorAxisLength": 184.8748759,
+      "AspectRation": 1.163315112,
+      "Eccentricity": 0.510946829,
+      "ConvexArea": 31558,
+      "EquivDiameter": 199.3210815,
+      "Extent": 0.762984155,
+      "Solidity": 0.988750871,
+      "roundness": 0.957948542,
+      "Compactness": 0.926782809,
+      "ShapeFactor1": 0.006892534,
+      "ShapeFactor2": 0.003136682,
+      "ShapeFactor3": 0.858926376,
+      "ShapeFactor4": 0.999202033,
+      "Class": "SEKER"
+    },
+    {
+      "Area": 31272,
+      "Perimeter": 638.666,
+      "MajorAxisLength": 212.4503189,
+      "MinorAxisLength": 187.535939,
+      "AspectRation": 1.132851229,
+      "Eccentricity": 0.469883494,
+      "ConvexArea": 31593,
+      "EquivDiameter": 199.5413417,
+      "Extent": 0.770322199,
+      "Solidity": 0.989839521,
+      "roundness": 0.963425036,
+      "Compactness": 0.939237666,
+      "ShapeFactor1": 0.006793627,
+      "ShapeFactor2": 0.003261246,
+      "ShapeFactor3": 0.882167393,
+      "ShapeFactor4": 0.999364415,
+      "Class": "SEKER"
+    },
+    {
+      "Area": 31335,
+      "Perimeter": 635.011,
+      "MajorAxisLength": 216.7900923,
+      "MinorAxisLength": 184.1634403,
+      "AspectRation": 1.177161395,
+      "Eccentricity": 0.52758671,
+      "ConvexArea": 31599,
+      "EquivDiameter": 199.7422367,
+      "Extent": 0.774277242,
+      "Solidity": 0.991645305,
+      "roundness": 0.976510834,
+      "Compactness": 0.921362386,
+      "ShapeFactor1": 0.006918465,
+      "ShapeFactor2": 0.003075469,
+      "ShapeFactor3": 0.848908647,
+      "ShapeFactor4": 0.999302487,
+      "Class": "SEKER"
+    }
+  ]
+}

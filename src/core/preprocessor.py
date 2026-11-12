@@ -317,61 +317,62 @@ class IntelligentPreprocessor:
 
                 except Exception:
                     # SHAP not available or model not supported, fall back to regular prediction
-                    neural_pred = self.neural_oracle.predict(
-                        features,
-                        return_probabilities=True,
-                        return_feature_importance=False
-                    )
-                    
-                    # Check if prediction succeeded (could return None if no model)
-                    if neural_pred is None:
-                        logger.info(f"Neural oracle not available for '{column_name}', using symbolic result")
-                        # Fall through to use symbolic result or conservative fallback
-                    else:
-                        # Blend symbolic and neural if both have medium confidence
-                        if symbolic_result.confidence > 0.5:
-                            action, confidence, explanation = self._blend_decisions(
-                                symbolic_result, neural_pred
-                            )
-                        else:
-                            action = neural_pred.action
-                            confidence = neural_pred.confidence
-                            
-                            # Validate action
-                            action = self._validate_neural_action(action, features, symbolic_result)
-                            
-                            explanation = f"Neural oracle prediction (symbolic confidence too low: {symbolic_result.confidence:.2f})"
-
-                        self.stats['neural_decisions'] += 1
-                        if confidence >= self.confidence_threshold:
-                            self.stats['high_confidence_decisions'] += 1
-
-                        elapsed_ms = (time.time() - start_time) * 1000
-                        self.stats['total_time_ms'] += elapsed_ms
-
-                        # Get alternatives from neural probabilities
-                        alternatives = sorted(
-                            [(a, p) for a, p in neural_pred.action_probabilities.items() if a != action],
-                            key=lambda x: x[1],
-                            reverse=True
-                        )[:3]
-
-                        result = PreprocessingResult(
-                            action=action,
-                            confidence=confidence,
-                            source='neural',
-                            explanation=explanation,
-                            alternatives=alternatives,
-                            parameters={},
-                            context=symbolic_result.context,
-                            decision_id=decision_id
+                    try:
+                        neural_pred = self.neural_oracle.predict(
+                            features,
+                            return_probabilities=True,
+                            return_feature_importance=False
                         )
-                        return self._add_confidence_warnings(result)
+                        
+                        # Check if prediction succeeded (could return None if no model)
+                        if neural_pred is None:
+                            logger.info(f"Neural oracle not available for '{column_name}', using symbolic result")
+                            # Fall through to use symbolic result or conservative fallback
+                        else:
+                            # Blend symbolic and neural if both have medium confidence
+                            if symbolic_result.confidence > 0.5:
+                                action, confidence, explanation = self._blend_decisions(
+                                    symbolic_result, neural_pred
+                                )
+                            else:
+                                action = neural_pred.action
+                                confidence = neural_pred.confidence
+                                
+                                # Validate action
+                                action = self._validate_neural_action(action, features, symbolic_result)
+                                
+                                explanation = f"Neural oracle prediction (symbolic confidence too low: {symbolic_result.confidence:.2f})"
 
-                except Exception as e:
-                    logger.warning(f"Neural oracle prediction failed for '{column_name}': {e}")
-                    # Fall back to symbolic result or conservative fallback
-                    pass
+                            self.stats['neural_decisions'] += 1
+                            if confidence >= self.confidence_threshold:
+                                self.stats['high_confidence_decisions'] += 1
+
+                            elapsed_ms = (time.time() - start_time) * 1000
+                            self.stats['total_time_ms'] += elapsed_ms
+
+                            # Get alternatives from neural probabilities
+                            alternatives = sorted(
+                                [(a, p) for a, p in neural_pred.action_probabilities.items() if a != action],
+                                key=lambda x: x[1],
+                                reverse=True
+                            )[:3]
+
+                            result = PreprocessingResult(
+                                action=action,
+                                confidence=confidence,
+                                source='neural',
+                                explanation=explanation,
+                                alternatives=alternatives,
+                                parameters={},
+                                context=symbolic_result.context,
+                                decision_id=decision_id
+                            )
+                            return self._add_confidence_warnings(result)
+
+                    except Exception as e:
+                        logger.warning(f"Neural oracle prediction failed for '{column_name}': {e}")
+                        # Fall back to symbolic result or conservative fallback
+                        pass
 
         # LAYER 4: Ultra-conservative fallback
         # When all layers are uncertain, make the safest possible decision

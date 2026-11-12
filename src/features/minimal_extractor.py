@@ -262,8 +262,9 @@ class MinimalFeatureExtractor:
         unique_ratio = unique_count / total_count if total_count > 0 else 0.0
 
         # Type detection
-        is_numeric = pd.api.types.is_numeric_dtype(column)
-        is_categorical = isinstance(column.dtype, pd.CategoricalDtype) or \
+        is_boolean = pd.api.types.is_bool_dtype(column)
+        is_numeric = pd.api.types.is_numeric_dtype(column) and not is_boolean
+        is_categorical = is_boolean or isinstance(column.dtype, pd.CategoricalDtype) or \
                         (pd.api.types.is_object_dtype(column) and unique_ratio < 0.5)
         is_temporal = pd.api.types.is_datetime64_any_dtype(column)
         is_text = pd.api.types.is_string_dtype(column) or pd.api.types.is_object_dtype(column)
