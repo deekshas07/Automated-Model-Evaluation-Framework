@@ -1,12 +1,12 @@
 <div align="center">
 
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20,30,40&height=220§ion=header&text=AI-Based%20Automated%20Model%20Identification%20and%20Hyperparameter%20Tuning%20System&fontSize=22&fontColor=ffffff&animation=fadeIn&fontAlignY=38" width="100%" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20,30,40&height=200§ion=header&text=AI-Based%20Automated%20Model%20Identification%20and%20Hyperparameter%20Tuning%20System&fontSize=20&fontColor=ffffff&animation=fadeIn&fontAlignY=38" width="100%" />
 
-  <p align="center">
-    <img src="https://img.shields.io/badge/Project-AI--Based%20AutoML%20Framework-blueviolet?style=for-the-badge&logo=gitbook&logoColor=white" />
-    <img src="https://img.shields.io/badge/Status-Production%20Ready-success?style=for-the-badge&logo=appveyor" />
-    <img src="https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python&logoColor=white" />
-    <img src="https://img.shields.io/badge/Architecture-Dual--Track%20Engine-orange?style=for-the-badge" />
+  <p>
+    <code>📌 PROJECT: AI-BASED AUTOML FRAMEWORK</code>  • 
+    <code>🟢 STATUS: PRODUCTION READY</code>  • 
+    <code>🐍 PYTHON: 3.10+</code>  • 
+    <code>⚙️ ENGINE: DUAL-TRACK ARCHITECTURE</code>
   </p>
 
   <h3>🚀 An enterprise-grade automated machine learning platform designed to eliminate manual data science bottlenecks through symbolic rules, parallel model evaluation, hybrid arbitration, and explainable AI.</h3>
