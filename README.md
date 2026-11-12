@@ -1,15 +1,12 @@
 <div align="center">
 
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20,30,40&height=220§ion=header&text=AI-Based%20AutoML%20System&fontSize=26&fontColor=ffffff&animation=fadeIn&fontAlignY=38" width="100%" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20,30,40&height=200§ion=header&text=AI-Based%20Automated%20Model%20Identification%20and%20Hyperparameter%20Tuning%20System&fontSize=20&fontColor=ffffff&animation=fadeIn&fontAlignY=38" width="100%" />
 
   <p>
-    <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=16&duration=3000&pause=1000&color=38BDF8¢er=true&vCenter=true&width=600&lines=Automated+Model+Identification+%26+Hyperparameter+Tuning;Dual-Track+Architecture+%7C+100%2B+Cleaning+Rules;5-Fold+Cross-Validation+%7C+SHAP+Explainable+AI" alt="Typing SVG" /></a>
-  </p>
-
-  <p>
-    <code>📌 <b>PROJECT:</b> AI-BASED AUTOML FRAMEWORK</code>  • 
-    <code>🟢 <b>STATUS:</b> PRODUCTION READY</code>  • 
-    <code>🐍 <b>PYTHON:</b> 3.10+</code>
+    <code>📌 PROJECT: AI-BASED AUTOML FRAMEWORK</code>  • 
+    <code>🟢 STATUS: PRODUCTION READY</code>  • 
+    <code>🐍 PYTHON: 3.10+</code>  • 
+    <code>⚙️ ENGINE: DUAL-TRACK ARCHITECTURE</code>
   </p>
 
   <h3>🚀 An enterprise-grade automated machine learning platform designed to eliminate manual data science bottlenecks through symbolic rules, parallel model evaluation, hybrid arbitration, and explainable AI.</h3>
@@ -27,11 +24,11 @@
 
 ## 🎯 Why We Are Using This System (Objectives & Motivations)
 
-1. **Eliminate Manual Effort:** 🛠️ Removes tedious manual trial-and-error in data preprocessing, feature engineering, and model selection.
-2. **Generic Tabular Adaptability:** 🌐 Built to handle diverse CSV-based classification datasets across domains (finance, healthcare, customer analytics) without being hardcoded to a single dataset.
-3. **Deterministic Data Cleaning:** 🧹 Automatically deploys over **100+ data preparation rules** for missing values, outliers, and normalization.
-4. **Dual-Track Rigorous Evaluation:** ⚡ Leverages both empirical machine learning training (16 models) and heuristic rule-based recommendations simultaneously to guarantee optimal model discovery.
-5. **Transparency & Trust:** 🔍 Incorporates **5-Fold Stratified Cross-Validation** and **SHAP (SHapley Additive exPlanations)** to ensure model stability and absolute interpretability of feature importance.
+1. **Eliminate Manual Effort:** Removes tedious manual trial-and-error in data preprocessing, feature engineering, and model selection.
+2. **Generic Tabular Adaptability:** Built to handle diverse CSV-based classification datasets across domains (finance, healthcare, customer analytics) without being hardcoded to a single dataset.
+3. **Deterministic Data Cleaning:** Automatically deploys over **100+ data preparation rules** for missing values, outliers, and normalization.
+4. **Dual-Track Rigorous Evaluation:** Leverages both empirical machine learning training (16 models) and heuristic rule-based recommendations simultaneously to guarantee optimal model discovery.
+5. **Transparency & Trust:** Incorporates **5-Fold Stratified Cross-Validation** and **SHAP (SHapley Additive exPlanations)** to ensure model stability and absolute interpretability of feature importance.
 
 ---
 
@@ -44,23 +41,23 @@ graph TD
     classDef track2 fill:#0f172a,stroke:#f472b6,stroke-width:2px,color:#fff;
     classDef decision fill:#312e81,stroke:#818cf8,stroke-width:2px,color:#fff;
 
-    A[📥 RAW DATASET: CSV Tabular Input] --> B[⚙️ DATA PREPROCESSING]:::process
-    B --> C["🧹 Apply 100+ Data Preparation Rules<br/>• Handling Missing Values<br/>• Outlier Detection<br/>• Normalization<br/>• Feature Engineering"]:::process
-    C --> D[📦 PREPROCESSED DATASET: Ready for Modeling]:::process
+    A[RAW DATASET: CSV Tabular Input] --> B[DATA PREPROCESSING]:::process
+    B --> C["Apply 100+ Data Preparation Rules<br/>• Handling Missing Values<br/>• Outlier Detection<br/>• Normalization<br/>• Feature Engineering"]:::process
+    C --> D[PREPROCESSED DATASET: Ready for Modeling]:::process
     
-    D --> E[🔬 APPROACH 1: ML Model Training & Selection]:::track1
-    D --> F[📐 APPROACH 2: Rule-Based Model Evaluation]:::track2
+    D --> E[APPROACH 1: ML Model Training & Selection]:::track1
+    D --> F[APPROACH 2: Rule-Based Model Evaluation]:::track2
     
-    E --> G["🤖 TRAIN 16 ML MODELS<br/>Random Forest, XGBoost, LightGBM, SVM, etc."]:::track1
-    F --> H["📜 APPLY 100 CLASSIFICATION RULES & 83 PREPARATION RULES"]:::track2
+    E --> G["TRAIN 16 ML MODELS<br/>Random Forest, XGBoost, LightGBM, SVM, etc."]:::track1
+    F --> H["APPLY 100 CLASSIFICATION RULES & 83 PREPARATION RULES"]:::track2
     
-    G --> I[🏆 SELECT BEST MODEL FROM APPROACH 1]:::track1
-    H --> J[📊 SCORE DATASET BASED ON RULES]:::track2
-    J --> K[🎖️ SELECT & TRAIN BEST MODEL FROM APPROACH 2]:::track2
+    G --> I[SELECT BEST MODEL FROM APPROACH 1]:::track1
+    H --> J[SCORE DATASET BASED ON RULES]:::track2
+    J --> K[SELECT & TRAIN BEST MODEL FROM APPROACH 2]:::track2
     
-    I --> L[⚖️ HYBRID COMPARISON METHOD: Approach 1 vs Approach 2]:::decision
+    I --> L[HYBRID COMPARISON METHOD: Approach 1 vs Approach 2]:::decision
     K --> L:::decision
     
-    L --> M[🌟 ULTIMATE BEST CHAMPION MODEL SELECTED]:::decision
-    M --> N["🔧 POST-PROCESSING & OPTIMIZATION<br/>• Hyperparameter Tuning<br/>• 5-Fold Cross-Validation<br/>• SHAP Explainability Analysis"]:::process
-    N --> O[🚀 FINAL DEPLOYABLE PRODUCTION MODEL]:::process
+    L --> M[ULTIMATE BEST CHAMPION MODEL SELECTED]:::decision
+    M --> N["POST-PROCESSING & OPTIMIZATION<br/>• Hyperparameter Tuning<br/>• 5-Fold Cross-Validation<br/>• SHAP Explainability Analysis"]:::process
+    N --> O[FINAL DEPLOYABLE PRODUCTION MODEL]:::process
