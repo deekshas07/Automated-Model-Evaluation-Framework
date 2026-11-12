@@ -1,97 +1,45 @@
-# AI-Based Automated Model Identification and Hyperparameter Tuning
+<div align="center">
+
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20,30,40&height=200§ion=header&text=Automated%20Model%20Evaluation%20Framework&fontSize=30&fontColor=ffffff&animation=fadeIn&fontAlignY=38" width="100%" />
+
+  <p align="center">
+    <img src="https://img.shields.io/badge/Status-Production%20Ready-success?style=for-the-badge&logo=appveyor" />
+    <img src="https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python&logoColor=white" />
+    <img src="https://img.shields.io/badge/License-MIT-orange?style=for-the-badge" />
+    <img src="https://img.shields.io/badge/Framework-AMEF-informational?style=for-the-badge" />
+  </p>
+
+  <h3>🚀 An intelligent, generic end-to-end Automated Machine Learning (AutoML) framework designed for CSV-based tabular classification datasets.</h3>
+
+</div>
+
+---
 
 ## 📌 Project Overview
 
-**AI-Based Automated Model Identification and Hyperparameter Tuning** is a generic automated machine learning framework developed for **CSV-based tabular classification datasets**.
+The **Automated Model Evaluation Framework (AMEF)** is engineered to take the heavy lifting and manual trial-and-error out of the machine learning lifecycle. Rather than being tied to a single specific dataset, the framework is fully generic and capable of processing any valid CSV tabular classification dataset containing input features and a target variable (where the last column is treated as the target class).
 
-The framework is not designed for one particular dataset. It can be applied to different suitable CSV datasets containing input features and a target variable.
-
-The main purpose of the project is to automate important stages of the machine learning workflow, starting from dataset analysis and preprocessing and continuing through model training, model evaluation, model comparison, best model identification, cross-validation, and Explainable AI.
-
-The framework uses a **rule-based/symbolic preprocessing engine containing more than 100 deterministic preprocessing rules**. These rules analyze the characteristics of the dataset and determine appropriate preprocessing operations.
-
-After preprocessing, the framework trains **16 different machine learning classification models**. Each model is evaluated using Accuracy, Precision, Recall, and F1-Score.
-
-The performance of all models is compared automatically, and the best-performing model is identified based on the evaluation results.
-
-The selected best model is then validated using **5-Fold Cross-Validation** to evaluate its performance across different portions of the dataset.
-
-Finally, **Explainable AI using SHAP (SHapley Additive exPlanations)** is applied to the selected best model to understand feature importance and how different attributes contribute to the model's predictions.
-
-Overall, the project combines automated preprocessing, multiple machine learning algorithms, model evaluation, model comparison, best model selection, cross-validation, and explainability into a single machine learning framework.
-
-> **Framework Name:** Automated Model Evaluation Framework (AMEF)
+By merging symbolic rule-based intelligence with empirical model training, AMEF automates everything from schema profiling and data preparation to model arbitration, 5-fold cross-validation, hyperparameter tuning, and explainable AI.
 
 ---
 
-# 🎯 Objectives
+## 🎯 Core Objectives
 
-The main objectives of the project are:
-
-1. To develop a generic automated machine learning framework for CSV-based tabular classification datasets.
-
-2. To automatically analyze the input dataset.
-
-3. To automate dataset preprocessing using a rule-based approach.
-
-4. To implement more than 100 deterministic preprocessing rules.
-
-5. To handle different types of data and dataset characteristics.
-
-6. To train multiple machine learning classification models.
-
-7. To evaluate the performance of each model.
-
-8. To compare the performance of different machine learning models.
-
-9. To automatically identify the best-performing model.
-
-10. To save the trained models for reuse.
-
-11. To validate the selected best model using 5-Fold Cross-Validation.
-
-12. To implement Explainable AI using SHAP.
-
-13. To identify important features influencing model predictions.
-
-14. To reduce the amount of manual effort required in the machine learning workflow.
+1. **Generic Tabular Support:** Process arbitrary CSV classification datasets across domains (healthcare, finance, business, etc.) without relying on hardcoded feature names.
+2. **Deterministic Preprocessing:** Automatically analyze input structures and apply over **100+ deterministic data preparation rules** for missing values, outliers, and scaling.
+3. **Dual-Track Evaluation Engine:** 
+   * **Approach 1:** Systematically train and evaluate **16 diverse machine learning classification models**.
+   * **Approach 2:** Utilize **100 classification rules and 83 preparation rules** to score dataset meta-features and recommend optimal heuristic variants.
+4. **Hybrid Arbitration & Selection:** Compare empirical results against rule-based recommendations to crown the champion model architecture.
+5. **Robust Validation:** Validate top models using **5-Fold Stratified Cross-Validation** to guarantee generalizability and stability.
+6. **Explainable AI (XAI):** Integrate **SHAP (SHapley Additive exPlanations)** to decipher feature importance and model decision pathways.
 
 ---
 
-# 📂 Dataset Support
+## 📊 System Workflow Architecture
 
-The framework is designed to work with **generic CSV-based tabular classification datasets**.
-
-There is no particular dataset fixed to the project.
-
-A suitable CSV dataset can be provided as input, provided that it contains:
-
-- Multiple input features/attributes
-- A target variable
-- Tabular data
-- A classification problem
-- A valid CSV format
-
-The framework does not depend on specific feature names.
-
-Different datasets can contain different attributes, and the preprocessing engine analyzes the characteristics of those attributes before applying preprocessing operations.
-
-For example, the framework can be applied to suitable classification datasets from domains such as:
-
-- Healthcare
-- Finance
-- Education
-- Business
-- Customer analytics
-- Other tabular classification applications
-
-## Current Target Column Requirement
-
-In the current implementation, the **last column of the CSV dataset is treated as the target variable**.
-
-The remaining columns are treated as input features.
-
-For example:
-
-```text
-Age | Gender | BloodPressure | Cholesterol | Target
+```mermaid
+graph TD
+    A[Raw CSV Dataset] --> B[Schema Profiling & Target Extraction Last Column]
+    B --> C[Symbolic Preprocessing: 100+ Rules]
+    C
